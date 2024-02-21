@@ -1,0 +1,905 @@
+<!DOCTYPE html>
+<!--[if !(IE 6) | !(IE 7) | !(IE 8)  ]><!-->
+<html lang="en-US" class="no-js">
+<!--<![endif]-->
+<head><meta charset=UTF-8"UTF-8" /><script>if(navigator.userAgent.match(/MSIE|Internet Explorer/i)||navigator.userAgent.match(/Trident\/7\..*?rv:11/i)){var href=document.location.href;if(!href.match(/[?&]nowprocket/)){if(href.indexOf("?")==-1){if(href.indexOf("#")==-1){document.location.href=href+"?nowprocket=1"}else{document.location.href=href.replace("#","?nowprocket=1#")}}else{if(href.indexOf("#")==-1){document.location.href=href+"&nowprocket=1"}else{document.location.href=href.replace("#","&nowprocket=1#")}}}}</script><script>class RocketLazyLoadScripts{constructor(){this.v="1.2.4",this.triggerEvents=["keydown","mousedown","mousemove","touchmove","touchstart","touchend","wheel"],this.userEventHandler=this._triggerListener.bind(this),this.touchStartHandler=this._onTouchStart.bind(this),this.touchMoveHandler=this._onTouchMove.bind(this),this.touchEndHandler=this._onTouchEnd.bind(this),this.clickHandler=this._onClick.bind(this),this.interceptedClicks=[],window.addEventListener("pageshow",t=>{this.persisted=t.persisted}),window.addEventListener("DOMContentLoaded",()=>{this._preconnect3rdParties()}),this.delayedScripts={normal:[],async:[],defer:[]},this.trash=[],this.allJQueries=[]}_addUserInteractionListener(t){if(document.hidden){t._triggerListener();return}this.triggerEvents.forEach(e=>window.addEventListener(e,t.userEventHandler,{passive:!0})),window.addEventListener("touchstart",t.touchStartHandler,{passive:!0}),window.addEventListener("mousedown",t.touchStartHandler),document.addEventListener("visibilitychange",t.userEventHandler)}_removeUserInteractionListener(){this.triggerEvents.forEach(t=>window.removeEventListener(t,this.userEventHandler,{passive:!0})),document.removeEventListener("visibilitychange",this.userEventHandler)}_onTouchStart(t){"HTML"!==t.target.tagName&&(window.addEventListener("touchend",this.touchEndHandler),window.addEventListener("mouseup",this.touchEndHandler),window.addEventListener("touchmove",this.touchMoveHandler,{passive:!0}),window.addEventListener("mousemove",this.touchMoveHandler),t.target.addEventListener("click",this.clickHandler),this._renameDOMAttribute(t.target,"onclick","rocket-onclick"),this._pendingClickStarted())}_onTouchMove(t){window.removeEventListener("touchend",this.touchEndHandler),window.removeEventListener("mouseup",this.touchEndHandler),window.removeEventListener("touchmove",this.touchMoveHandler,{passive:!0}),window.removeEventListener("mousemove",this.touchMoveHandler),t.target.removeEventListener("click",this.clickHandler),this._renameDOMAttribute(t.target,"rocket-onclick","onclick"),this._pendingClickFinished()}_onTouchEnd(){window.removeEventListener("touchend",this.touchEndHandler),window.removeEventListener("mouseup",this.touchEndHandler),window.removeEventListener("touchmove",this.touchMoveHandler,{passive:!0}),window.removeEventListener("mousemove",this.touchMoveHandler)}_onClick(t){t.target.removeEventListener("click",this.clickHandler),this._renameDOMAttribute(t.target,"rocket-onclick","onclick"),this.interceptedClicks.push(t),t.preventDefault(),t.stopPropagation(),t.stopImmediatePropagation(),this._pendingClickFinished()}_replayClicks(){window.removeEventListener("touchstart",this.touchStartHandler,{passive:!0}),window.removeEventListener("mousedown",this.touchStartHandler),this.interceptedClicks.forEach(t=>{t.target.dispatchEvent(new MouseEvent("click",{view:t.view,bubbles:!0,cancelable:!0}))})}_waitForPendingClicks(){return new Promise(t=>{this._isClickPending?this._pendingClickFinished=t:t()})}_pendingClickStarted(){this._isClickPending=!0}_pendingClickFinished(){this._isClickPending=!1}_renameDOMAttribute(t,e,r){t.hasAttribute&&t.hasAttribute(e)&&(event.target.setAttribute(r,event.target.getAttribute(e)),event.target.removeAttribute(e))}_triggerListener(){this._removeUserInteractionListener(this),"loading"===document.readyState?document.addEventListener("DOMContentLoaded",this._loadEverythingNow.bind(this)):this._loadEverythingNow()}_preconnect3rdParties(){let t=[];document.querySelectorAll("script[type=rocketlazyloadscript][data-rocket-src]").forEach(e=>{let r=e.getAttribute("data-rocket-src");if(r&&0!==r.indexOf("data:")){0===r.indexOf("//")&&(r=location.protocol+r);try{let i=new URL(r).origin;i!==location.origin&&t.push({src:i,crossOrigin:e.crossOrigin||"module"===e.getAttribute("data-rocket-type")})}catch(n){}}}),t=[...new Map(t.map(t=>[JSON.stringify(t),t])).values()],this._batchInjectResourceHints(t,"preconnect")}async _loadEverythingNow(){this.lastBreath=Date.now(),this._delayEventListeners(),this._delayJQueryReady(this),this._handleDocumentWrite(),this._registerAllDelayedScripts(),this._preloadAllScripts(),await this._loadScriptsFromList(this.delayedScripts.normal),await this._loadScriptsFromList(this.delayedScripts.defer),await this._loadScriptsFromList(this.delayedScripts.async);try{await this._triggerDOMContentLoaded(),await this._pendingWebpackRequests(this),await this._triggerWindowLoad()}catch(t){console.error(t)}window.dispatchEvent(new Event("rocket-allScriptsLoaded")),this._waitForPendingClicks().then(()=>{this._replayClicks()}),this._emptyTrash()}_registerAllDelayedScripts(){document.querySelectorAll("script[type=rocketlazyloadscript]").forEach(t=>{t.hasAttribute("data-rocket-src")?t.hasAttribute("async")&&!1!==t.async?this.delayedScripts.async.push(t):t.hasAttribute("defer")&&!1!==t.defer||"module"===t.getAttribute("data-rocket-type")?this.delayedScripts.defer.push(t):this.delayedScripts.normal.push(t):this.delayedScripts.normal.push(t)})}async _transformScript(t){if(await this._littleBreath(),!0===t.noModule&&"noModule"in HTMLScriptElement.prototype){t.setAttribute("data-rocket-status","skipped");return}return new Promise(navigator.userAgent.indexOf("Firefox/")>0||""===navigator.vendor?e=>{let r=document.createElement("script");[...t.attributes].forEach(t=>{let e=t.nodeName;"type"!==e&&("data-rocket-type"===e&&(e="type"),"data-rocket-src"===e&&(e="src"),r.setAttribute(e,t.nodeValue))}),t.text&&(r.text=t.text),r.hasAttribute("src")?(r.addEventListener("load",e),r.addEventListener("error",e)):(r.text=t.text,e());try{t.parentNode.replaceChild(r,t)}catch(i){e()}}:e=>{function r(){t.setAttribute("data-rocket-status","failed"),e()}try{let i=t.getAttribute("data-rocket-type"),n=t.getAttribute("data-rocket-src");i?(t.type=i,t.removeAttribute("data-rocket-type")):t.removeAttribute("type"),t.addEventListener("load",function r(){t.setAttribute("data-rocket-status","executed"),e()}),t.addEventListener("error",r),n?(t.removeAttribute("data-rocket-src"),t.src=n):t.src="data:text/javascript;base64,"+window.btoa(unescape(encodeURIComponent(t.text)))}catch(s){r()}})}async _loadScriptsFromList(t){let e=t.shift();return e&&e.isConnected?(await this._transformScript(e),this._loadScriptsFromList(t)):Promise.resolve()}_preloadAllScripts(){this._batchInjectResourceHints([...this.delayedScripts.normal,...this.delayedScripts.defer,...this.delayedScripts.async],"preload")}_batchInjectResourceHints(t,e){var r=document.createDocumentFragment();t.forEach(t=>{let i=t.getAttribute&&t.getAttribute("data-rocket-src")||t.src;if(i){let n=document.createElement("link");n.href=i,n.rel=e,"preconnect"!==e&&(n.as="script"),t.getAttribute&&"module"===t.getAttribute("data-rocket-type")&&(n.crossOrigin=!0),t.crossOrigin&&(n.crossOrigin=t.crossOrigin),t.integrity&&(n.integrity=t.integrity),r.appendChild(n),this.trash.push(n)}}),document.head.appendChild(r)}_delayEventListeners(){let t={};function e(e,r){!function e(r){!t[r]&&(t[r]={originalFunctions:{add:r.addEventListener,remove:r.removeEventListener},eventsToRewrite:[]},r.addEventListener=function(){arguments[0]=i(arguments[0]),t[r].originalFunctions.add.apply(r,arguments)},r.removeEventListener=function(){arguments[0]=i(arguments[0]),t[r].originalFunctions.remove.apply(r,arguments)});function i(e){return t[r].eventsToRewrite.indexOf(e)>=0?"rocket-"+e:e}}(e),t[e].eventsToRewrite.push(r)}function r(t,e){let r=t[e];Object.defineProperty(t,e,{get:()=>r||function(){},set(i){t["rocket"+e]=r=i}})}e(document,"DOMContentLoaded"),e(window,"DOMContentLoaded"),e(window,"load"),e(window,"pageshow"),e(document,"readystatechange"),r(document,"onreadystatechange"),r(window,"onload"),r(window,"onpageshow")}_delayJQueryReady(t){let e;function r(t){return t.split(" ").map(t=>"load"===t||0===t.indexOf("load.")?"rocket-jquery-load":t).join(" ")}function i(i){if(i&&i.fn&&!t.allJQueries.includes(i)){i.fn.ready=i.fn.init.prototype.ready=function(e){return t.domReadyFired?e.bind(document)(i):document.addEventListener("rocket-DOMContentLoaded",()=>e.bind(document)(i)),i([])};let n=i.fn.on;i.fn.on=i.fn.init.prototype.on=function(){return this[0]===window&&("string"==typeof arguments[0]||arguments[0]instanceof String?arguments[0]=r(arguments[0]):"object"==typeof arguments[0]&&Object.keys(arguments[0]).forEach(t=>{let e=arguments[0][t];delete arguments[0][t],arguments[0][r(t)]=e})),n.apply(this,arguments),this},t.allJQueries.push(i)}e=i}i(window.jQuery),Object.defineProperty(window,"jQuery",{get:()=>e,set(t){i(t)}})}async _pendingWebpackRequests(t){let e=document.querySelector("script[data-webpack]");async function r(){return new Promise(t=>{e.addEventListener("load",t),e.addEventListener("error",t)})}e&&(await r(),await t._requestAnimFrame(),await t._pendingWebpackRequests(t))}async _triggerDOMContentLoaded(){this.domReadyFired=!0,await this._littleBreath(),document.dispatchEvent(new Event("rocket-DOMContentLoaded")),await this._littleBreath(),window.dispatchEvent(new Event("rocket-DOMContentLoaded")),await this._littleBreath(),document.dispatchEvent(new Event("rocket-readystatechange")),await this._littleBreath(),document.rocketonreadystatechange&&document.rocketonreadystatechange()}async _triggerWindowLoad(){await this._littleBreath(),window.dispatchEvent(new Event("rocket-load")),await this._littleBreath(),window.rocketonload&&window.rocketonload(),await this._littleBreath(),this.allJQueries.forEach(t=>t(window).trigger("rocket-jquery-load")),await this._littleBreath();let t=new Event("rocket-pageshow");t.persisted=this.persisted,window.dispatchEvent(t),await this._littleBreath(),window.rocketonpageshow&&window.rocketonpageshow({persisted:this.persisted})}_handleDocumentWrite(){let t=new Map;document.write=document.writeln=function(e){let r=document.currentScript;r||console.error("WPRocket unable to document.write this: "+e);let i=document.createRange(),n=r.parentElement,s=t.get(r);void 0===s&&(s=r.nextSibling,t.set(r,s));let a=document.createDocumentFragment();i.setStart(a,0),a.appendChild(i.createContextualFragment(e)),n.insertBefore(a,s)}}async _littleBreath(){Date.now()-this.lastBreath>45&&(await this._requestAnimFrame(),this.lastBreath=Date.now())}async _requestAnimFrame(){return document.hidden?new Promise(t=>setTimeout(t)):new Promise(t=>requestAnimationFrame(t))}_emptyTrash(){this.trash.forEach(t=>t.remove())}static run(){let t=new RocketLazyLoadScripts;t._addUserInteractionListener(t)}}RocketLazyLoadScripts.run();</script>
+	
+		<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=0">
+		<meta name="theme-color" content="#f1950a"/>	<link rel="profile" href="http://gmpg.org/xfn/11" />
+	        <script type="rocketlazyloadscript" data-rocket-type="text/javascript">
+            if (/Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent)) {
+                var originalAddEventListener = EventTarget.prototype.addEventListener,
+                    oldWidth = window.innerWidth;
+
+                EventTarget.prototype.addEventListener = function (eventName, eventHandler, useCapture) {
+                    if (eventName === "resize") {
+                        originalAddEventListener.call(this, eventName, function (event) {
+                            if (oldWidth === window.innerWidth) {
+                                return;
+                            }
+                            else if (oldWidth !== window.innerWidth) {
+                                oldWidth = window.innerWidth;
+                            }
+                            if (eventHandler.handleEvent) {
+                                eventHandler.handleEvent.call(this, event);
+                            }
+                            else {
+                                eventHandler.call(this, event);
+                            };
+                        }, useCapture);
+                    }
+                    else {
+                        originalAddEventListener.call(this, eventName, eventHandler, useCapture);
+                    };
+                };
+            };
+        </script>
+		<meta name='robots' content='index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1' />
+
+<!-- Google Tag Manager for WordPress by gtm4wp.com -->
+<script data-cfasync="false" data-pagespeed-no-defer>
+	var gtm4wp_datalayer_name = "dataLayer";
+	var dataLayer = dataLayer || [];
+</script>
+<!-- End Google Tag Manager for WordPress by gtm4wp.com -->
+	<!-- This site is optimized with the Yoast SEO plugin v22.0 - https://yoast.com/wordpress/plugins/seo/ -->
+	<title>4 benefits of a clean home | FixinGuru</title><link rel="preload" as="style" href="https://fonts.googleapis.com/css?family=Roboto%3A400%2C600%2C700%7COpen%20Sans%3A400%2C600%2C700%7CRoboto%20Condensed%3A400%2C600%2C700%7CNoto%20Sans%3A400%2C400italic%2C600%2C700&#038;display=swap" /><link rel="stylesheet" href="../../fonts.googleapis.com/css-family=Roboto-400,600,700-Open Sans-400,600,700-Roboto Condensed-400,600,700-Noto Sans-400,400italic,600,700&display=swap.css" tppabs="https://fonts.googleapis.com/css?family=Roboto%3A400%2C600%2C700%7COpen%20Sans%3A400%2C600%2C700%7CRoboto%20Condensed%3A400%2C600%2C700%7CNoto%20Sans%3A400%2C400italic%2C600%2C700&display=swap" media="print" onload="this.media='all'" /><noscript><link rel="stylesheet" href="../../fonts.googleapis.com/css-family=Roboto-400,600,700-Open Sans-400,600,700-Roboto Condensed-400,600,700-Noto Sans-400,400italic,600,700&display=swap.css" tppabs="https://fonts.googleapis.com/css?family=Roboto%3A400%2C600%2C700%7COpen%20Sans%3A400%2C600%2C700%7CRoboto%20Condensed%3A400%2C600%2C700%7CNoto%20Sans%3A400%2C400italic%2C600%2C700&display=swap" /></noscript>
+	<meta name="description" content="Our homes are a safe haven for us to recharge and rest after a long day and cleanliness should not be overlooked. Learn more about the benefits of a clean home." />
+	<link rel="canonical" href="https://www.fixinguru.sg/4-benefits-of-a-clean-home/" />
+	<meta property="og:locale" content="en_US" />
+	<meta property="og:type" content="article" />
+	<meta property="og:title" content="4 benefits of a clean home | FixinGuru" />
+	<meta property="og:description" content="Our homes are a safe haven for us to recharge and rest after a long day and cleanliness should not be overlooked. Learn more about the benefits of a clean home." />
+	<meta property="og:url" content="https://www.fixinguru.sg/4-benefits-of-a-clean-home/" />
+	<meta property="og:site_name" content="FixinGuru Pte Ltd" />
+	<meta property="article:published_time" content="2023-05-19T08:09:03+00:00" />
+	<meta property="article:modified_time" content="2023-05-19T09:11:29+00:00" />
+	<meta property="og:image" content="https://www.fixinguru.sg/wp-content/uploads/2023/05/4-benefits-of-a-clean-home-1.jpg" />
+	<meta property="og:image:width" content="1100" />
+	<meta property="og:image:height" content="550" />
+	<meta property="og:image:type" content="image/jpeg" />
+	<meta name="author" content="FixinGuru" />
+	<meta name="twitter:card" content="summary_large_image" />
+	<meta name="twitter:label1" content="Written by" />
+	<meta name="twitter:data1" content="FixinGuru" />
+	<meta name="twitter:label2" content="Est. reading time" />
+	<meta name="twitter:data2" content="3 minutes" />
+	<script type="application/ld+json" class="yoast-schema-graph">{"@context":"https://schema.org","@graph":[{"@type":"Article","@id":"https://www.fixinguru.sg/4-benefits-of-a-clean-home/#article","isPartOf":{"@id":"https://www.fixinguru.sg/4-benefits-of-a-clean-home/"},"author":{"name":"FixinGuru","@id":"https://www.fixinguru.sg/#/schema/person/baca7be1b564f2f28920db52b17eb5cb"},"headline":"4 benefits of a clean home","datePublished":"2023-05-19T08:09:03+00:00","dateModified":"2023-05-19T09:11:29+00:00","mainEntityOfPage":{"@id":"https://www.fixinguru.sg/4-benefits-of-a-clean-home/"},"wordCount":631,"commentCount":0,"publisher":{"@id":"https://www.fixinguru.sg/#organization"},"image":{"@id":"https://www.fixinguru.sg/4-benefits-of-a-clean-home/#primaryimage"},"thumbnailUrl":"https://www.fixinguru.sg/wp-content/uploads/2023/05/4-benefits-of-a-clean-home-1.jpg","keywords":["cleaning company singapore","disinfection services singapore","hdb rubbish chute replacement","rubbish chute repair"],"articleSection":["Clean home","cleaning company singapore"],"inLanguage":"en-US","potentialAction":[{"@type":"CommentAction","name":"Comment","target":["https://www.fixinguru.sg/4-benefits-of-a-clean-home/#respond"]}]},{"@type":"WebPage","@id":"https://www.fixinguru.sg/4-benefits-of-a-clean-home/","url":"https://www.fixinguru.sg/4-benefits-of-a-clean-home/","name":"4 benefits of a clean home | FixinGuru","isPartOf":{"@id":"https://www.fixinguru.sg/#website"},"primaryImageOfPage":{"@id":"https://www.fixinguru.sg/4-benefits-of-a-clean-home/#primaryimage"},"image":{"@id":"https://www.fixinguru.sg/4-benefits-of-a-clean-home/#primaryimage"},"thumbnailUrl":"https://www.fixinguru.sg/wp-content/uploads/2023/05/4-benefits-of-a-clean-home-1.jpg","datePublished":"2023-05-19T08:09:03+00:00","dateModified":"2023-05-19T09:11:29+00:00","description":"Our homes are a safe haven for us to recharge and rest after a long day and cleanliness should not be overlooked. Learn more about the benefits of a clean home.","breadcrumb":{"@id":"https://www.fixinguru.sg/4-benefits-of-a-clean-home/#breadcrumb"},"inLanguage":"en-US","potentialAction":[{"@type":"ReadAction","target":["https://www.fixinguru.sg/4-benefits-of-a-clean-home/"]}]},{"@type":"ImageObject","inLanguage":"en-US","@id":"https://www.fixinguru.sg/4-benefits-of-a-clean-home/#primaryimage","url":"https://www.fixinguru.sg/wp-content/uploads/2023/05/4-benefits-of-a-clean-home-1.jpg","contentUrl":"https://www.fixinguru.sg/wp-content/uploads/2023/05/4-benefits-of-a-clean-home-1.jpg","width":1100,"height":550,"caption":"4 benefits of a clean home"},{"@type":"BreadcrumbList","@id":"https://www.fixinguru.sg/4-benefits-of-a-clean-home/#breadcrumb","itemListElement":[{"@type":"ListItem","position":1,"name":"Home","item":"https://www.fixinguru.sg/"},{"@type":"ListItem","position":2,"name":"Clean home","item":"https://www.fixinguru.sg/category/clean-home/"},{"@type":"ListItem","position":3,"name":"4 benefits of a clean home"}]},{"@type":"WebSite","@id":"https://www.fixinguru.sg/#website","url":"https://www.fixinguru.sg/","name":"FixinGuru Pte Ltd","description":"FixinGuru Pte Ltd","publisher":{"@id":"https://www.fixinguru.sg/#organization"},"potentialAction":[{"@type":"SearchAction","target":{"@type":"EntryPoint","urlTemplate":"https://www.fixinguru.sg/?s={search_term_string}"},"query-input":"required name=search_term_string"}],"inLanguage":"en-US"},{"@type":"Organization","@id":"https://www.fixinguru.sg/#organization","name":"FixinGuru Pte Ltd","url":"https://www.fixinguru.sg/","logo":{"@type":"ImageObject","inLanguage":"en-US","@id":"https://www.fixinguru.sg/#/schema/logo/image/","url":"https://www.fixinguru.sg/wp-content/uploads/2020/03/fixinguru-logo-300-90.png","contentUrl":"https://www.fixinguru.sg/wp-content/uploads/2020/03/fixinguru-logo-300-90.png","width":300,"height":90,"caption":"FixinGuru Pte Ltd"},"image":{"@id":"https://www.fixinguru.sg/#/schema/logo/image/"},"sameAs":["https://www.instagram.com/fixinguru/"]},{"@type":"Person","@id":"https://www.fixinguru.sg/#/schema/person/baca7be1b564f2f28920db52b17eb5cb","name":"FixinGuru","image":{"@type":"ImageObject","inLanguage":"en-US","@id":"https://www.fixinguru.sg/#/schema/person/image/","url":"https://secure.gravatar.com/avatar/4f4287b5f9faabe7e695e668546bc0a2?s=96&d=mm&r=g","contentUrl":"https://secure.gravatar.com/avatar/4f4287b5f9faabe7e695e668546bc0a2?s=96&d=mm&r=g","caption":"FixinGuru"}}]}</script>
+	<!-- / Yoast SEO plugin. -->
+
+
+<link rel='dns-prefetch' href='//fonts.googleapis.com' />
+<link rel='dns-prefetch' href='//fonts.gstatic.com' />
+<link rel='dns-prefetch' href='//secure.gravatar.com' />
+<link rel='dns-prefetch' href='//embed.tawk.to' />
+<link rel='dns-prefetch' href='//va.tawk.to' />
+<link rel='dns-prefetch' href='//vsb86.tawk.to' />
+<link rel='dns-prefetch' href='//static-v.tawk.to' />
+<link rel='dns-prefetch' href='//cdn.jsdelivr.net' />
+<link href='https://fonts.gstatic.com' crossorigin rel='preconnect' />
+<link rel="alternate" type="application/rss+xml" title="FixinGuru Pte Ltd &raquo; Feed" href="https://www.fixinguru.sg/feed/" />
+<link rel="alternate" type="application/rss+xml" title="FixinGuru Pte Ltd &raquo; Comments Feed" href="https://www.fixinguru.sg/comments/feed/" />
+<link rel="alternate" type="application/rss+xml" title="FixinGuru Pte Ltd &raquo; 4 benefits of a clean home Comments Feed" href="https://www.fixinguru.sg/4-benefits-of-a-clean-home/feed/" />
+<style id='cf-frontend-style-inline-css' type='text/css'>
+@font-face {
+	font-family: 'GreycliffCF-ExtraBoldOblique';
+	font-weight: 400;
+	font-display: auto;
+	src: url("../wp-content/uploads/2020/03/GreycliffCF-ExtraBoldOblique.woff2"/*tpa=https://www.fixinguru.sg/wp-content/uploads/2020/03/GreycliffCF-ExtraBoldOblique.woff2*//*tpa=https://www.fixinguru.sg/wp-content/uploads/2020/03/GreycliffCF-ExtraBoldOblique.woff2*/) format('woff2');
+}
+@font-face {
+	font-family: 'GreycliffCF-ExtraBold';
+	font-weight: 400;
+	font-display: auto;
+	src: url("../wp-content/uploads/2020/03/GreycliffCF-ExtraBold.woff2"/*tpa=https://www.fixinguru.sg/wp-content/uploads/2020/03/GreycliffCF-ExtraBold.woff2*//*tpa=https://www.fixinguru.sg/wp-content/uploads/2020/03/GreycliffCF-ExtraBold.woff2*/) format('woff2');
+}
+@font-face {
+	font-family: 'GreycliffCF-DemiBoldOblique';
+	font-weight: 400;
+	font-display: auto;
+	src: url("../wp-content/uploads/2020/03/GreycliffCF-DemiBoldOblique.woff2"/*tpa=https://www.fixinguru.sg/wp-content/uploads/2020/03/GreycliffCF-DemiBoldOblique.woff2*//*tpa=https://www.fixinguru.sg/wp-content/uploads/2020/03/GreycliffCF-DemiBoldOblique.woff2*/) format('woff2');
+}
+@font-face {
+	font-family: 'GreycliffCF-DemiBold';
+	font-weight: 400;
+	font-display: auto;
+	src: url("../wp-content/uploads/2020/03/GreycliffCF-DemiBold.woff2"/*tpa=https://www.fixinguru.sg/wp-content/uploads/2020/03/GreycliffCF-DemiBold.woff2*//*tpa=https://www.fixinguru.sg/wp-content/uploads/2020/03/GreycliffCF-DemiBold.woff2*/) format('woff2');
+}
+@font-face {
+	font-family: 'GreycliffCF-BoldOblique';
+	font-weight: 400;
+	font-display: auto;
+	src: url("../wp-content/uploads/2020/03/GreycliffCF-BoldOblique.woff2"/*tpa=https://www.fixinguru.sg/wp-content/uploads/2020/03/GreycliffCF-BoldOblique.woff2*//*tpa=https://www.fixinguru.sg/wp-content/uploads/2020/03/GreycliffCF-BoldOblique.woff2*/) format('woff2');
+}
+@font-face {
+	font-family: 'GreycliffCF-Bold';
+	font-weight: 400;
+	font-display: auto;
+	src: url("../wp-content/uploads/2020/03/GreycliffCF-Bold.woff2"/*tpa=https://www.fixinguru.sg/wp-content/uploads/2020/03/GreycliffCF-Bold.woff2*//*tpa=https://www.fixinguru.sg/wp-content/uploads/2020/03/GreycliffCF-Bold.woff2*/) format('woff2');
+}
+</style>
+<style id='wp-emoji-styles-inline-css' type='text/css'>
+
+	img.wp-smiley, img.emoji {
+		display: inline !important;
+		border: none !important;
+		box-shadow: none !important;
+		height: 1em !important;
+		width: 1em !important;
+		margin: 0 0.07em !important;
+		vertical-align: -0.1em !important;
+		background: none !important;
+		padding: 0 !important;
+	}
+</style>
+<link rel='stylesheet' id='wp-block-library-css' href="../wp-includes/css/dist/block-library/style.min.css-ver=6.4.3.css" tppabs="https://www.fixinguru.sg/wp-includes/css/dist/block-library/style.min.css?ver=6.4.3" type='text/css' media='all' />
+<style id='wp-block-library-theme-inline-css' type='text/css'>
+.wp-block-audio figcaption{color:#555;font-size:13px;text-align:center}.is-dark-theme .wp-block-audio figcaption{color:hsla(0,0%,100%,.65)}.wp-block-audio{margin:0 0 1em}.wp-block-code{border:1px solid #ccc;border-radius:4px;font-family:Menlo,Consolas,monaco,monospace;padding:.8em 1em}.wp-block-embed figcaption{color:#555;font-size:13px;text-align:center}.is-dark-theme .wp-block-embed figcaption{color:hsla(0,0%,100%,.65)}.wp-block-embed{margin:0 0 1em}.blocks-gallery-caption{color:#555;font-size:13px;text-align:center}.is-dark-theme .blocks-gallery-caption{color:hsla(0,0%,100%,.65)}.wp-block-image figcaption{color:#555;font-size:13px;text-align:center}.is-dark-theme .wp-block-image figcaption{color:hsla(0,0%,100%,.65)}.wp-block-image{margin:0 0 1em}.wp-block-pullquote{border-bottom:4px solid;border-top:4px solid;color:currentColor;margin-bottom:1.75em}.wp-block-pullquote cite,.wp-block-pullquote footer,.wp-block-pullquote__citation{color:currentColor;font-size:.8125em;font-style:normal;text-transform:uppercase}.wp-block-quote{border-left:.25em solid;margin:0 0 1.75em;padding-left:1em}.wp-block-quote cite,.wp-block-quote footer{color:currentColor;font-size:.8125em;font-style:normal;position:relative}.wp-block-quote.has-text-align-right{border-left:none;border-right:.25em solid;padding-left:0;padding-right:1em}.wp-block-quote.has-text-align-center{border:none;padding-left:0}.wp-block-quote.is-large,.wp-block-quote.is-style-large,.wp-block-quote.is-style-plain{border:none}.wp-block-search .wp-block-search__label{font-weight:700}.wp-block-search__button{border:1px solid #ccc;padding:.375em .625em}:where(.wp-block-group.has-background){padding:1.25em 2.375em}.wp-block-separator.has-css-opacity{opacity:.4}.wp-block-separator{border:none;border-bottom:2px solid;margin-left:auto;margin-right:auto}.wp-block-separator.has-alpha-channel-opacity{opacity:1}.wp-block-separator:not(.is-style-wide):not(.is-style-dots){width:100px}.wp-block-separator.has-background:not(.is-style-dots){border-bottom:none;height:1px}.wp-block-separator.has-background:not(.is-style-wide):not(.is-style-dots){height:2px}.wp-block-table{margin:0 0 1em}.wp-block-table td,.wp-block-table th{word-break:normal}.wp-block-table figcaption{color:#555;font-size:13px;text-align:center}.is-dark-theme .wp-block-table figcaption{color:hsla(0,0%,100%,.65)}.wp-block-video figcaption{color:#555;font-size:13px;text-align:center}.is-dark-theme .wp-block-video figcaption{color:hsla(0,0%,100%,.65)}.wp-block-video{margin:0 0 1em}.wp-block-template-part.has-background{margin-bottom:0;margin-top:0;padding:1.25em 2.375em}
+</style>
+<link data-minify="1" rel='stylesheet' id='editorskit-frontend-css' href="../wp-content/cache/min/1/wp-content/plugins/block-options/build/style.build.css-ver=1695107834.css" tppabs="https://www.fixinguru.sg/wp-content/cache/min/1/wp-content/plugins/block-options/build/style.build.css?ver=1695107834" type='text/css' media='all' />
+<link data-minify="1" rel='stylesheet' id='bb-tcs-editor-style-shared-css' href="../wp-content/cache/min/1/wp-content/editor-style-shared.css-ver=1695107834.css" tppabs="https://www.fixinguru.sg/wp-content/cache/min/1/wp-content/editor-style-shared.css?ver=1695107834" type='text/css' media='all' />
+<style id='classic-theme-styles-inline-css' type='text/css'>
+/*! This file is auto-generated */
+.wp-block-button__link{color:#fff;background-color:#32373c;border-radius:9999px;box-shadow:none;text-decoration:none;padding:calc(.667em + 2px) calc(1.333em + 2px);font-size:1.125em}.wp-block-file__button{background:#32373c;color:#fff;text-decoration:none}
+</style>
+<style id='global-styles-inline-css' type='text/css'>
+body{--wp--preset--color--black: #000000;--wp--preset--color--cyan-bluish-gray: #abb8c3;--wp--preset--color--white: #FFF;--wp--preset--color--pale-pink: #f78da7;--wp--preset--color--vivid-red: #cf2e2e;--wp--preset--color--luminous-vivid-orange: #ff6900;--wp--preset--color--luminous-vivid-amber: #fcb900;--wp--preset--color--light-green-cyan: #7bdcb5;--wp--preset--color--vivid-green-cyan: #00d084;--wp--preset--color--pale-cyan-blue: #8ed1fc;--wp--preset--color--vivid-cyan-blue: #0693e3;--wp--preset--color--vivid-purple: #9b51e0;--wp--preset--color--accent: #f1950a;--wp--preset--color--dark-gray: #111;--wp--preset--color--light-gray: #767676;--wp--preset--gradient--vivid-cyan-blue-to-vivid-purple: linear-gradient(135deg,rgba(6,147,227,1) 0%,rgb(155,81,224) 100%);--wp--preset--gradient--light-green-cyan-to-vivid-green-cyan: linear-gradient(135deg,rgb(122,220,180) 0%,rgb(0,208,130) 100%);--wp--preset--gradient--luminous-vivid-amber-to-luminous-vivid-orange: linear-gradient(135deg,rgba(252,185,0,1) 0%,rgba(255,105,0,1) 100%);--wp--preset--gradient--luminous-vivid-orange-to-vivid-red: linear-gradient(135deg,rgba(255,105,0,1) 0%,rgb(207,46,46) 100%);--wp--preset--gradient--very-light-gray-to-cyan-bluish-gray: linear-gradient(135deg,rgb(238,238,238) 0%,rgb(169,184,195) 100%);--wp--preset--gradient--cool-to-warm-spectrum: linear-gradient(135deg,rgb(74,234,220) 0%,rgb(151,120,209) 20%,rgb(207,42,186) 40%,rgb(238,44,130) 60%,rgb(251,105,98) 80%,rgb(254,248,76) 100%);--wp--preset--gradient--blush-light-purple: linear-gradient(135deg,rgb(255,206,236) 0%,rgb(152,150,240) 100%);--wp--preset--gradient--blush-bordeaux: linear-gradient(135deg,rgb(254,205,165) 0%,rgb(254,45,45) 50%,rgb(107,0,62) 100%);--wp--preset--gradient--luminous-dusk: linear-gradient(135deg,rgb(255,203,112) 0%,rgb(199,81,192) 50%,rgb(65,88,208) 100%);--wp--preset--gradient--pale-ocean: linear-gradient(135deg,rgb(255,245,203) 0%,rgb(182,227,212) 50%,rgb(51,167,181) 100%);--wp--preset--gradient--electric-grass: linear-gradient(135deg,rgb(202,248,128) 0%,rgb(113,206,126) 100%);--wp--preset--gradient--midnight: linear-gradient(135deg,rgb(2,3,129) 0%,rgb(40,116,252) 100%);--wp--preset--font-size--small: 13px;--wp--preset--font-size--medium: 20px;--wp--preset--font-size--large: 36px;--wp--preset--font-size--x-large: 42px;--wp--preset--spacing--20: 0.44rem;--wp--preset--spacing--30: 0.67rem;--wp--preset--spacing--40: 1rem;--wp--preset--spacing--50: 1.5rem;--wp--preset--spacing--60: 2.25rem;--wp--preset--spacing--70: 3.38rem;--wp--preset--spacing--80: 5.06rem;--wp--preset--shadow--natural: 6px 6px 9px rgba(0, 0, 0, 0.2);--wp--preset--shadow--deep: 12px 12px 50px rgba(0, 0, 0, 0.4);--wp--preset--shadow--sharp: 6px 6px 0px rgba(0, 0, 0, 0.2);--wp--preset--shadow--outlined: 6px 6px 0px -3px rgba(255, 255, 255, 1), 6px 6px rgba(0, 0, 0, 1);--wp--preset--shadow--crisp: 6px 6px 0px rgba(0, 0, 0, 1);}:where(.is-layout-flex){gap: 0.5em;}:where(.is-layout-grid){gap: 0.5em;}body .is-layout-flow > .alignleft{float: left;margin-inline-start: 0;margin-inline-end: 2em;}body .is-layout-flow > .alignright{float: right;margin-inline-start: 2em;margin-inline-end: 0;}body .is-layout-flow > .aligncenter{margin-left: auto !important;margin-right: auto !important;}body .is-layout-constrained > .alignleft{float: left;margin-inline-start: 0;margin-inline-end: 2em;}body .is-layout-constrained > .alignright{float: right;margin-inline-start: 2em;margin-inline-end: 0;}body .is-layout-constrained > .aligncenter{margin-left: auto !important;margin-right: auto !important;}body .is-layout-constrained > :where(:not(.alignleft):not(.alignright):not(.alignfull)){max-width: var(--wp--style--global--content-size);margin-left: auto !important;margin-right: auto !important;}body .is-layout-constrained > .alignwide{max-width: var(--wp--style--global--wide-size);}body .is-layout-flex{display: flex;}body .is-layout-flex{flex-wrap: wrap;align-items: center;}body .is-layout-flex > *{margin: 0;}body .is-layout-grid{display: grid;}body .is-layout-grid > *{margin: 0;}:where(.wp-block-columns.is-layout-flex){gap: 2em;}:where(.wp-block-columns.is-layout-grid){gap: 2em;}:where(.wp-block-post-template.is-layout-flex){gap: 1.25em;}:where(.wp-block-post-template.is-layout-grid){gap: 1.25em;}.has-black-color{color: var(--wp--preset--color--black) !important;}.has-cyan-bluish-gray-color{color: var(--wp--preset--color--cyan-bluish-gray) !important;}.has-white-color{color: var(--wp--preset--color--white) !important;}.has-pale-pink-color{color: var(--wp--preset--color--pale-pink) !important;}.has-vivid-red-color{color: var(--wp--preset--color--vivid-red) !important;}.has-luminous-vivid-orange-color{color: var(--wp--preset--color--luminous-vivid-orange) !important;}.has-luminous-vivid-amber-color{color: var(--wp--preset--color--luminous-vivid-amber) !important;}.has-light-green-cyan-color{color: var(--wp--preset--color--light-green-cyan) !important;}.has-vivid-green-cyan-color{color: var(--wp--preset--color--vivid-green-cyan) !important;}.has-pale-cyan-blue-color{color: var(--wp--preset--color--pale-cyan-blue) !important;}.has-vivid-cyan-blue-color{color: var(--wp--preset--color--vivid-cyan-blue) !important;}.has-vivid-purple-color{color: var(--wp--preset--color--vivid-purple) !important;}.has-black-background-color{background-color: var(--wp--preset--color--black) !important;}.has-cyan-bluish-gray-background-color{background-color: var(--wp--preset--color--cyan-bluish-gray) !important;}.has-white-background-color{background-color: var(--wp--preset--color--white) !important;}.has-pale-pink-background-color{background-color: var(--wp--preset--color--pale-pink) !important;}.has-vivid-red-background-color{background-color: var(--wp--preset--color--vivid-red) !important;}.has-luminous-vivid-orange-background-color{background-color: var(--wp--preset--color--luminous-vivid-orange) !important;}.has-luminous-vivid-amber-background-color{background-color: var(--wp--preset--color--luminous-vivid-amber) !important;}.has-light-green-cyan-background-color{background-color: var(--wp--preset--color--light-green-cyan) !important;}.has-vivid-green-cyan-background-color{background-color: var(--wp--preset--color--vivid-green-cyan) !important;}.has-pale-cyan-blue-background-color{background-color: var(--wp--preset--color--pale-cyan-blue) !important;}.has-vivid-cyan-blue-background-color{background-color: var(--wp--preset--color--vivid-cyan-blue) !important;}.has-vivid-purple-background-color{background-color: var(--wp--preset--color--vivid-purple) !important;}.has-black-border-color{border-color: var(--wp--preset--color--black) !important;}.has-cyan-bluish-gray-border-color{border-color: var(--wp--preset--color--cyan-bluish-gray) !important;}.has-white-border-color{border-color: var(--wp--preset--color--white) !important;}.has-pale-pink-border-color{border-color: var(--wp--preset--color--pale-pink) !important;}.has-vivid-red-border-color{border-color: var(--wp--preset--color--vivid-red) !important;}.has-luminous-vivid-orange-border-color{border-color: var(--wp--preset--color--luminous-vivid-orange) !important;}.has-luminous-vivid-amber-border-color{border-color: var(--wp--preset--color--luminous-vivid-amber) !important;}.has-light-green-cyan-border-color{border-color: var(--wp--preset--color--light-green-cyan) !important;}.has-vivid-green-cyan-border-color{border-color: var(--wp--preset--color--vivid-green-cyan) !important;}.has-pale-cyan-blue-border-color{border-color: var(--wp--preset--color--pale-cyan-blue) !important;}.has-vivid-cyan-blue-border-color{border-color: var(--wp--preset--color--vivid-cyan-blue) !important;}.has-vivid-purple-border-color{border-color: var(--wp--preset--color--vivid-purple) !important;}.has-vivid-cyan-blue-to-vivid-purple-gradient-background{background: var(--wp--preset--gradient--vivid-cyan-blue-to-vivid-purple) !important;}.has-light-green-cyan-to-vivid-green-cyan-gradient-background{background: var(--wp--preset--gradient--light-green-cyan-to-vivid-green-cyan) !important;}.has-luminous-vivid-amber-to-luminous-vivid-orange-gradient-background{background: var(--wp--preset--gradient--luminous-vivid-amber-to-luminous-vivid-orange) !important;}.has-luminous-vivid-orange-to-vivid-red-gradient-background{background: var(--wp--preset--gradient--luminous-vivid-orange-to-vivid-red) !important;}.has-very-light-gray-to-cyan-bluish-gray-gradient-background{background: var(--wp--preset--gradient--very-light-gray-to-cyan-bluish-gray) !important;}.has-cool-to-warm-spectrum-gradient-background{background: var(--wp--preset--gradient--cool-to-warm-spectrum) !important;}.has-blush-light-purple-gradient-background{background: var(--wp--preset--gradient--blush-light-purple) !important;}.has-blush-bordeaux-gradient-background{background: var(--wp--preset--gradient--blush-bordeaux) !important;}.has-luminous-dusk-gradient-background{background: var(--wp--preset--gradient--luminous-dusk) !important;}.has-pale-ocean-gradient-background{background: var(--wp--preset--gradient--pale-ocean) !important;}.has-electric-grass-gradient-background{background: var(--wp--preset--gradient--electric-grass) !important;}.has-midnight-gradient-background{background: var(--wp--preset--gradient--midnight) !important;}.has-small-font-size{font-size: var(--wp--preset--font-size--small) !important;}.has-medium-font-size{font-size: var(--wp--preset--font-size--medium) !important;}.has-large-font-size{font-size: var(--wp--preset--font-size--large) !important;}.has-x-large-font-size{font-size: var(--wp--preset--font-size--x-large) !important;}
+.wp-block-navigation a:where(:not(.wp-element-button)){color: inherit;}
+:where(.wp-block-post-template.is-layout-flex){gap: 1.25em;}:where(.wp-block-post-template.is-layout-grid){gap: 1.25em;}
+:where(.wp-block-columns.is-layout-flex){gap: 2em;}:where(.wp-block-columns.is-layout-grid){gap: 2em;}
+.wp-block-pullquote{font-size: 1.5em;line-height: 1.6;}
+</style>
+<link data-minify="1" rel='stylesheet' id='ub-extension-style-css-css' href="../wp-content/cache/min/1/wp-content/plugins/ultimate-blocks/src/extensions/style.css-ver=1702881183.css" tppabs="https://www.fixinguru.sg/wp-content/cache/min/1/wp-content/plugins/ultimate-blocks/src/extensions/style.css?ver=1702881183" type='text/css' media='all' />
+<link data-minify="1" rel='stylesheet' id='contact-form-7-css' href="../wp-content/cache/min/1/wp-content/plugins/contact-form-7/includes/css/styles.css-ver=1695107834.css" tppabs="https://www.fixinguru.sg/wp-content/cache/min/1/wp-content/plugins/contact-form-7/includes/css/styles.css?ver=1695107834" type='text/css' media='all' />
+<link rel='stylesheet' id='jquery.contactus.css-css' href="../wp-content/plugins/ar-contactus/res/css/jquery.contactus.min.css-ver=1.9.9.css" tppabs="https://www.fixinguru.sg/wp-content/plugins/ar-contactus/res/css/jquery.contactus.min.css?ver=1.9.9" type='text/css' media='all' />
+<link data-minify="1" rel='stylesheet' id='contactus.generated.desktop.css-css' href="../wp-content/cache/min/1/wp-content/plugins/ar-contactus/res/css/generated-desktop.css-ver=1695107840.css" tppabs="https://www.fixinguru.sg/wp-content/cache/min/1/wp-content/plugins/ar-contactus/res/css/generated-desktop.css?ver=1695107840" type='text/css' media='all' />
+<link data-minify="1" rel='stylesheet' id='qlwapp-css' href="../wp-content/cache/min/1/wp-content/plugins/wp-whatsapp-chat/build/frontend/css/style.css-ver=1695107834.css" tppabs="https://www.fixinguru.sg/wp-content/cache/min/1/wp-content/plugins/wp-whatsapp-chat/build/frontend/css/style.css?ver=1695107834" type='text/css' media='all' />
+<link data-minify="1" rel='stylesheet' id='js_composer_custom_css-css' href="../wp-content/cache/min/1/wp-content/uploads/js_composer/custom.css-ver=1695107834.css" tppabs="https://www.fixinguru.sg/wp-content/cache/min/1/wp-content/uploads/js_composer/custom.css?ver=1695107834" type='text/css' media='all' />
+
+<link rel='stylesheet' id='dt-main-css' href="../wp-content/themes/dt-the7/css/main.min.css-ver=9.2.1.css" tppabs="https://www.fixinguru.sg/wp-content/themes/dt-the7/css/main.min.css?ver=9.2.1" type='text/css' media='all' />
+<style id='dt-main-inline-css' type='text/css'>
+body #load {
+  display: block;
+  height: 100%;
+  overflow: hidden;
+  position: fixed;
+  width: 100%;
+  z-index: 9901;
+  opacity: 1;
+  visibility: visible;
+  transition: all .35s ease-out;
+}
+.load-wrap {
+  width: 100%;
+  height: 100%;
+  background-position: center center;
+  background-repeat: no-repeat;
+  text-align: center;
+}
+.load-wrap > svg {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%,-50%);
+}
+#load {
+  background-color: rgba(255,255,255,0.88);
+}
+.uil-default rect:not(.bk) {
+  fill: #191716;
+}
+.uil-ring > path {
+  fill: #191716;
+}
+.ring-loader .circle {
+  fill: #191716;
+}
+.ring-loader .moving-circle {
+  fill: #191716;
+}
+.uil-hourglass .glass {
+  stroke: #191716;
+}
+.uil-hourglass .sand {
+  fill: #191716;
+}
+.spinner-loader .load-wrap {
+  background-image: url("data:image/svg+xml,%3Csvg width='75px' height='75px' xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100' preserveAspectRatio='xMidYMid' class='uil-default'%3E%3Crect x='0' y='0' width='100' height='100' fill='none' class='bk'%3E%3C/rect%3E%3Crect  x='46.5' y='40' width='7' height='20' rx='5' ry='5' fill='%23191716' transform='rotate(0 50 50) translate(0 -30)'%3E  %3Canimate attributeName='opacity' from='1' to='0' dur='1s' begin='0s' repeatCount='indefinite'/%3E%3C/rect%3E%3Crect  x='46.5' y='40' width='7' height='20' rx='5' ry='5' fill='%23191716' transform='rotate(30 50 50) translate(0 -30)'%3E  %3Canimate attributeName='opacity' from='1' to='0' dur='1s' begin='0.08333333333333333s' repeatCount='indefinite'/%3E%3C/rect%3E%3Crect  x='46.5' y='40' width='7' height='20' rx='5' ry='5' fill='%23191716' transform='rotate(60 50 50) translate(0 -30)'%3E  %3Canimate attributeName='opacity' from='1' to='0' dur='1s' begin='0.16666666666666666s' repeatCount='indefinite'/%3E%3C/rect%3E%3Crect  x='46.5' y='40' width='7' height='20' rx='5' ry='5' fill='%23191716' transform='rotate(90 50 50) translate(0 -30)'%3E  %3Canimate attributeName='opacity' from='1' to='0' dur='1s' begin='0.25s' repeatCount='indefinite'/%3E%3C/rect%3E%3Crect  x='46.5' y='40' width='7' height='20' rx='5' ry='5' fill='%23191716' transform='rotate(120 50 50) translate(0 -30)'%3E  %3Canimate attributeName='opacity' from='1' to='0' dur='1s' begin='0.3333333333333333s' repeatCount='indefinite'/%3E%3C/rect%3E%3Crect  x='46.5' y='40' width='7' height='20' rx='5' ry='5' fill='%23191716' transform='rotate(150 50 50) translate(0 -30)'%3E  %3Canimate attributeName='opacity' from='1' to='0' dur='1s' begin='0.4166666666666667s' repeatCount='indefinite'/%3E%3C/rect%3E%3Crect  x='46.5' y='40' width='7' height='20' rx='5' ry='5' fill='%23191716' transform='rotate(180 50 50) translate(0 -30)'%3E  %3Canimate attributeName='opacity' from='1' to='0' dur='1s' begin='0.5s' repeatCount='indefinite'/%3E%3C/rect%3E%3Crect  x='46.5' y='40' width='7' height='20' rx='5' ry='5' fill='%23191716' transform='rotate(210 50 50) translate(0 -30)'%3E  %3Canimate attributeName='opacity' from='1' to='0' dur='1s' begin='0.5833333333333334s' repeatCount='indefinite'/%3E%3C/rect%3E%3Crect  x='46.5' y='40' width='7' height='20' rx='5' ry='5' fill='%23191716' transform='rotate(240 50 50) translate(0 -30)'%3E  %3Canimate attributeName='opacity' from='1' to='0' dur='1s' begin='0.6666666666666666s' repeatCount='indefinite'/%3E%3C/rect%3E%3Crect  x='46.5' y='40' width='7' height='20' rx='5' ry='5' fill='%23191716' transform='rotate(270 50 50) translate(0 -30)'%3E  %3Canimate attributeName='opacity' from='1' to='0' dur='1s' begin='0.75s' repeatCount='indefinite'/%3E%3C/rect%3E%3Crect  x='46.5' y='40' width='7' height='20' rx='5' ry='5' fill='%23191716' transform='rotate(300 50 50) translate(0 -30)'%3E  %3Canimate attributeName='opacity' from='1' to='0' dur='1s' begin='0.8333333333333334s' repeatCount='indefinite'/%3E%3C/rect%3E%3Crect  x='46.5' y='40' width='7' height='20' rx='5' ry='5' fill='%23191716' transform='rotate(330 50 50) translate(0 -30)'%3E  %3Canimate attributeName='opacity' from='1' to='0' dur='1s' begin='0.9166666666666666s' repeatCount='indefinite'/%3E%3C/rect%3E%3C/svg%3E");
+}
+.ring-loader .load-wrap {
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32' width='72' height='72' fill='%23191716'%3E   %3Cpath opacity='.25' d='M16 0 A16 16 0 0 0 16 32 A16 16 0 0 0 16 0 M16 4 A12 12 0 0 1 16 28 A12 12 0 0 1 16 4'/%3E   %3Cpath d='M16 0 A16 16 0 0 1 32 16 L28 16 A12 12 0 0 0 16 4z'%3E     %3CanimateTransform attributeName='transform' type='rotate' from='0 16 16' to='360 16 16' dur='0.8s' repeatCount='indefinite' /%3E   %3C/path%3E %3C/svg%3E");
+}
+.hourglass-loader .load-wrap {
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32' width='72' height='72' fill='%23191716'%3E   %3Cpath transform='translate(2)' d='M0 12 V20 H4 V12z'%3E      %3Canimate attributeName='d' values='M0 12 V20 H4 V12z; M0 4 V28 H4 V4z; M0 12 V20 H4 V12z; M0 12 V20 H4 V12z' dur='1.2s' repeatCount='indefinite' begin='0' keytimes='0;.2;.5;1' keySplines='0.2 0.2 0.4 0.8;0.2 0.6 0.4 0.8;0.2 0.8 0.4 0.8' calcMode='spline'  /%3E   %3C/path%3E   %3Cpath transform='translate(8)' d='M0 12 V20 H4 V12z'%3E     %3Canimate attributeName='d' values='M0 12 V20 H4 V12z; M0 4 V28 H4 V4z; M0 12 V20 H4 V12z; M0 12 V20 H4 V12z' dur='1.2s' repeatCount='indefinite' begin='0.2' keytimes='0;.2;.5;1' keySplines='0.2 0.2 0.4 0.8;0.2 0.6 0.4 0.8;0.2 0.8 0.4 0.8' calcMode='spline'  /%3E   %3C/path%3E   %3Cpath transform='translate(14)' d='M0 12 V20 H4 V12z'%3E     %3Canimate attributeName='d' values='M0 12 V20 H4 V12z; M0 4 V28 H4 V4z; M0 12 V20 H4 V12z; M0 12 V20 H4 V12z' dur='1.2s' repeatCount='indefinite' begin='0.4' keytimes='0;.2;.5;1' keySplines='0.2 0.2 0.4 0.8;0.2 0.6 0.4 0.8;0.2 0.8 0.4 0.8' calcMode='spline' /%3E   %3C/path%3E   %3Cpath transform='translate(20)' d='M0 12 V20 H4 V12z'%3E     %3Canimate attributeName='d' values='M0 12 V20 H4 V12z; M0 4 V28 H4 V4z; M0 12 V20 H4 V12z; M0 12 V20 H4 V12z' dur='1.2s' repeatCount='indefinite' begin='0.6' keytimes='0;.2;.5;1' keySplines='0.2 0.2 0.4 0.8;0.2 0.6 0.4 0.8;0.2 0.8 0.4 0.8' calcMode='spline' /%3E   %3C/path%3E   %3Cpath transform='translate(26)' d='M0 12 V20 H4 V12z'%3E     %3Canimate attributeName='d' values='M0 12 V20 H4 V12z; M0 4 V28 H4 V4z; M0 12 V20 H4 V12z; M0 12 V20 H4 V12z' dur='1.2s' repeatCount='indefinite' begin='0.8' keytimes='0;.2;.5;1' keySplines='0.2 0.2 0.4 0.8;0.2 0.6 0.4 0.8;0.2 0.8 0.4 0.8' calcMode='spline' /%3E   %3C/path%3E %3C/svg%3E");
+}
+
+</style>
+<link data-minify="1" rel='stylesheet' id='the7-font-css' href="../wp-content/cache/min/1/wp-content/themes/dt-the7/fonts/icomoon-the7-font/icomoon-the7-font.min.css-ver=1695107834.css" tppabs="https://www.fixinguru.sg/wp-content/cache/min/1/wp-content/themes/dt-the7/fonts/icomoon-the7-font/icomoon-the7-font.min.css?ver=1695107834" type='text/css' media='all' />
+<link data-minify="1" rel='stylesheet' id='the7-awesome-fonts-css' href="../wp-content/cache/min/1/wp-content/themes/dt-the7/fonts/FontAwesome/css/all.min.css-ver=1695107834.css" tppabs="https://www.fixinguru.sg/wp-content/cache/min/1/wp-content/themes/dt-the7/fonts/FontAwesome/css/all.min.css?ver=1695107834" type='text/css' media='all' />
+<link rel='stylesheet' id='the7-awesome-fonts-back-css' href="../wp-content/themes/dt-the7/fonts/FontAwesome/back-compat.min.css-ver=9.2.1.css" tppabs="https://www.fixinguru.sg/wp-content/themes/dt-the7/fonts/FontAwesome/back-compat.min.css?ver=9.2.1" type='text/css' media='all' />
+<link rel='stylesheet' id='the7-core-css' href="../wp-content/plugins/dt-the7-core/assets/css/post-type.min.css-ver=2.7.8.css" tppabs="https://www.fixinguru.sg/wp-content/plugins/dt-the7-core/assets/css/post-type.min.css?ver=2.7.8" type='text/css' media='all' />
+<link data-minify="1" rel='stylesheet' id='dt-custom-css' href="../wp-content/cache/min/1/wp-content/uploads/the7-css/custom.css-ver=1695107835.css" tppabs="https://www.fixinguru.sg/wp-content/cache/min/1/wp-content/uploads/the7-css/custom.css?ver=1695107835" type='text/css' media='all' />
+<link data-minify="1" rel='stylesheet' id='dt-media-css' href="../wp-content/cache/min/1/wp-content/uploads/the7-css/media.css-ver=1695107835.css" tppabs="https://www.fixinguru.sg/wp-content/cache/min/1/wp-content/uploads/the7-css/media.css?ver=1695107835" type='text/css' media='all' />
+<link data-minify="1" rel='stylesheet' id='the7-mega-menu-css' href="../wp-content/cache/min/1/wp-content/uploads/the7-css/mega-menu.css-ver=1695107835.css" tppabs="https://www.fixinguru.sg/wp-content/cache/min/1/wp-content/uploads/the7-css/mega-menu.css?ver=1695107835" type='text/css' media='all' />
+<link data-minify="1" rel='stylesheet' id='the7-elements-albums-portfolio-css' href="../wp-content/cache/min/1/wp-content/uploads/the7-css/the7-elements-albums-portfolio.css-ver=1695107835.css" tppabs="https://www.fixinguru.sg/wp-content/cache/min/1/wp-content/uploads/the7-css/the7-elements-albums-portfolio.css?ver=1695107835" type='text/css' media='all' />
+<link data-minify="1" rel='stylesheet' id='the7-elements-css' href="../wp-content/cache/min/1/wp-content/uploads/the7-css/post-type-dynamic.css-ver=1695107835.css" tppabs="https://www.fixinguru.sg/wp-content/cache/min/1/wp-content/uploads/the7-css/post-type-dynamic.css?ver=1695107835" type='text/css' media='all' />
+<link rel='stylesheet' id='style-css' href="../wp-content/themes/dt-the7-child/style.css-ver=9.2.1.css" tppabs="https://www.fixinguru.sg/wp-content/themes/dt-the7-child/style.css?ver=9.2.1" type='text/css' media='all' />
+<script type="rocketlazyloadscript" data-rocket-type="text/javascript" data-rocket-src="../wp-includes/js/jquery/jquery.min.js-ver=3.7.1" tppabs="https://www.fixinguru.sg/wp-includes/js/jquery/jquery.min.js?ver=3.7.1" id="jquery-core-js"></script>
+<script type="rocketlazyloadscript" data-rocket-type="text/javascript" data-rocket-src="../wp-includes/js/jquery/jquery-migrate.min.js-ver=3.4.1" tppabs="https://www.fixinguru.sg/wp-includes/js/jquery/jquery-migrate.min.js?ver=3.4.1" id="jquery-migrate-js" defer></script>
+<script type="text/javascript" id="jquery.contactus-js-extra">
+/* <![CDATA[ */
+var arCUVars = {"url":"https:\/\/www.fixinguru.sg\/wp-admin\/admin-ajax.php","version":"1.9.9","_wpnonce":"<input type=\"hidden\" id=\"_wpnonce\" name=\"_wpnonce\" value=\"c8086f8baa\" \/><input type=\"hidden\" name=\"_wp_http_referer\" value=\"\/4-benefits-of-a-clean-home\/\" \/>"};
+/* ]]> */
+</script>
+<script type="rocketlazyloadscript" data-rocket-type="text/javascript" data-rocket-src="../wp-content/plugins/ar-contactus/res/js/jquery.contactus.min.js-ver=1.9.9" tppabs="https://www.fixinguru.sg/wp-content/plugins/ar-contactus/res/js/jquery.contactus.min.js?ver=1.9.9" id="jquery.contactus-js" defer></script>
+<script type="rocketlazyloadscript" data-minify="1" data-rocket-type="text/javascript" data-rocket-src="../wp-content/cache/min/1/wp-content/plugins/ar-contactus/res/js/scripts.js-ver=1695002404" tppabs="https://www.fixinguru.sg/wp-content/cache/min/1/wp-content/plugins/ar-contactus/res/js/scripts.js?ver=1695002404" id="jquery.contactus.scripts-js" defer></script>
+<script type="text/javascript" id="dt-above-fold-js-extra">
+/* <![CDATA[ */
+var dtLocal = {"themeUrl":"https:\/\/www.fixinguru.sg\/wp-content\/themes\/dt-the7","passText":"To view this protected post, enter the password below:","moreButtonText":{"loading":"Loading...","loadMore":"Load more"},"postID":"982","ajaxurl":"https:\/\/www.fixinguru.sg\/wp-admin\/admin-ajax.php","REST":{"baseUrl":"https:\/\/www.fixinguru.sg\/wp-json\/the7\/v1","endpoints":{"sendMail":"\/send-mail"}},"contactMessages":{"required":"One or more fields have an error. Please check and try again.","terms":"Please accept the privacy policy.","fillTheCaptchaError":"Please, fill the captcha."},"captchaSiteKey":"","ajaxNonce":"7c96f81c21","pageData":"","themeSettings":{"smoothScroll":"off","lazyLoading":false,"accentColor":{"mode":"solid","color":"#f1950a"},"desktopHeader":{"height":70},"ToggleCaptionEnabled":"disabled","ToggleCaption":"Navigation","floatingHeader":{"showAfter":140,"showMenu":false,"height":60,"logo":{"showLogo":true,"html":"","url":"https:\/\/www.fixinguru.sg\/"}},"topLine":{"floatingTopLine":{"logo":{"showLogo":false,"html":""}}},"mobileHeader":{"firstSwitchPoint":1050,"secondSwitchPoint":778,"firstSwitchPointHeight":80,"secondSwitchPointHeight":60,"mobileToggleCaptionEnabled":"disabled","mobileToggleCaption":"Menu"},"stickyMobileHeaderFirstSwitch":{"logo":{"html":"<img class=\" preload-me\" src=\"https:\/\/www.fixinguru.sg\/wp-content\/uploads\/2022\/10\/FixinGuru-Pte-Ltd-Logo.jpg\" srcset=\"https:\/\/www.fixinguru.sg\/wp-content\/uploads\/2022\/10\/FixinGuru-Pte-Ltd-Logo.jpg 150w, https:\/\/www.fixinguru.sg\/wp-content\/uploads\/2022\/10\/FixinGuru-Pte-Ltd-Logo.jpg 150w\" width=\"150\" height=\"45\"   sizes=\"150px\" alt=\"FixinGuru Pte Ltd\" \/>"}},"stickyMobileHeaderSecondSwitch":{"logo":{"html":"<img class=\" preload-me\" src=\"https:\/\/www.fixinguru.sg\/wp-content\/uploads\/2022\/10\/FixinGuru-Pte-Ltd-Logo.jpg\" srcset=\"https:\/\/www.fixinguru.sg\/wp-content\/uploads\/2022\/10\/FixinGuru-Pte-Ltd-Logo.jpg 150w, https:\/\/www.fixinguru.sg\/wp-content\/uploads\/2022\/10\/FixinGuru-Pte-Ltd-Logo.jpg 150w\" width=\"150\" height=\"45\"   sizes=\"150px\" alt=\"FixinGuru Pte Ltd\" \/>"}},"content":{"textColor":"#191716","headerColor":"#191716"},"sidebar":{"switchPoint":990},"boxedWidth":"1340px","stripes":{"stripe1":{"textColor":"#787d85","headerColor":"#3b3f4a"},"stripe2":{"textColor":"#8b9199","headerColor":"#ffffff"},"stripe3":{"textColor":"#ffffff","headerColor":"#ffffff"}}},"VCMobileScreenWidth":"768"};
+var dtShare = {"shareButtonText":{"facebook":"Share on Facebook","twitter":"Tweet","pinterest":"Pin it","linkedin":"Share on Linkedin","whatsapp":"Share on Whatsapp"},"overlayOpacity":"85"};
+/* ]]> */
+</script>
+<script type="rocketlazyloadscript" data-rocket-type="text/javascript" data-rocket-src="../wp-content/themes/dt-the7/js/above-the-fold.min.js-ver=9.2.1" tppabs="https://www.fixinguru.sg/wp-content/themes/dt-the7/js/above-the-fold.min.js?ver=9.2.1" id="dt-above-fold-js" defer></script>
+<link rel="https://api.w.org/" href="https://www.fixinguru.sg/wp-json/" /><link rel="alternate" type="application/json" href="https://www.fixinguru.sg/wp-json/wp/v2/posts/982" /><link rel="EditURI" type="application/rsd+xml" title="RSD" href="https://www.fixinguru.sg/xmlrpc.php?rsd" />
+<link rel='shortlink' href='https://www.fixinguru.sg/?p=982' />
+<link rel="alternate" type="application/json+oembed" href="https://www.fixinguru.sg/wp-json/oembed/1.0/embed?url=https%3A%2F%2Fwww.fixinguru.sg%2F4-benefits-of-a-clean-home%2F" />
+<link rel="alternate" type="text/xml+oembed" href="https://www.fixinguru.sg/wp-json/oembed/1.0/embed?url=https%3A%2F%2Fwww.fixinguru.sg%2F4-benefits-of-a-clean-home%2F&#038;format=xml" />
+
+	<style></style>
+
+	<meta name="generator" content="Site Kit by Google 1.120.0" /><meta name=”viewport” content=”width=device-width, initial-scale=1″>
+<script type="rocketlazyloadscript">
+document.querySelector("img.preload-me").alt = "FixinGuru Pte Ltd Logo";
+</script>
+
+<meta name="robots" content="index,follow">
+<meta name="msvalidate.01" content="A46ED5F72FBE26236E09086CEE7552E5" />
+
+<script type="rocketlazyloadscript" type=application/ld+json>
+            {
+              "@context": "https://schema.org/",
+              "@type": "CreativeWorkSeries",
+              "name": "FixinGuru Pte Ltd",
+              "aggregateRating": {
+                "@type": "AggregateRating",
+                "ratingValue": "4.7",
+                "bestRating": "5",
+                "ratingCount": "139"
+              }
+            }
+          </script>
+
+<script type="application/ld+json">
+	{
+		"@context": "https://schema.org",
+		"@type": "LocalBusiness",
+		"name": "FixinGuru Pte Ltd",
+		"image": "https://3y386915hsrb2pljr01e6dzt-wpengine.netdna-ssl.com/wp-content/uploads/2022/08/logo_orange.png",
+		"@id": "",
+		"url": "https://www.fixinguru.sg/",
+		"telephone": "8797 9735",
+		"address": {
+			"@type": "PostalAddress",
+			"streetAddress": "18 Boon Lay Way, Tradehub 21",
+			"addressLocality": "",
+			"postalCode": "609966",
+			"addressCountry": "SG"
+	  }  
+	}
+</script>
+	
+<!-- <script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "BlogPosting",
+  "mainEntityOfPage": {
+    "@type": "WebPage",
+    "@id": "https://www.fixinguru.sg/landlords-guide-for-maintaining-rental-properties/"
+  },
+  "headline": "LANDLORDS’ GUIDE FOR MAINTAINING RENTAL PROPERTIES",
+  "description": "When you are a landlord, you take on a wide variety of responsibilities that must be met in their entirety. 
+Some of these issues, such as troublesome tenants and a decreased rental income, can be a real pain in the neck.",
+  "image": "",  
+  "author": {
+    "@type": "Organization",
+    "name": ""
+  },  
+  "publisher": {
+    "@type": "Organization",
+    "name": "",
+    "logo": {
+      "@type": "ImageObject",
+      "url": ""
+    }
+  },
+  "datePublished": "2022-08-09",
+  "dateModified": "2022-08-09"
+}
+</script> -->
+<style>
+	.fancy-categories {
+		display:none;
+	}
+	.single-post .entry-title {
+    color: #fff!important;
+}
+	.breadcrumbs, .page-title .breadcrumbs, .page-title .breadcrumbs a {
+    color: #fff!important;
+}
+</style>
+<!-- Google Tag Manager for WordPress by gtm4wp.com -->
+<!-- GTM Container placement set to automatic -->
+<script data-cfasync="false" data-pagespeed-no-defer>
+	var dataLayer_content = {"pagePostType":"post","pagePostType2":"single-post","pageCategory":["clean-home","cleaning-company-singapore"],"pageAttributes":["cleaning-company-singapore","disinfection-services-singapore","hdb-rubbish-chute-replacement","rubbish-chute-repair"],"pagePostAuthor":"FixinGuru"};
+	dataLayer.push( dataLayer_content );
+</script>
+<script type="rocketlazyloadscript" data-cfasync="false">
+(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
+new Date().getTime(),event:'gtm.js'/*tpa=https://www.fixinguru.sg/4-benefits-of-a-clean-home/gtm.js*/});var f=d.getElementsByTagName(s)[0],
+j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
+'//www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
+})(window,document,'script','dataLayer','GTM-5T2TXKT');
+</script>
+<!-- End Google Tag Manager for WordPress by gtm4wp.com --><link rel="pingback" href="https://www.fixinguru.sg/xmlrpc.php">
+<style type="text/css">.recentcomments a{display:inline !important;padding:0 !important;margin:0 !important;}</style><meta name="generator" content="Powered by WPBakery Page Builder - drag and drop page builder for WordPress."/>
+<script type="rocketlazyloadscript">
+document.querySelector("img.preload-me").alt = "FixinGuru Pte Ltd Logo";
+</script>
+<style>
+	.home #attachment_535 img{
+	margin-bottom:0;	
+	}
+	@media(max-width:840px){
+	.home div.vc_col-sm-8:nth-child(3){
+		width: 100%;
+		}
+	.home div.vc_col-sm-8:nth-child(3) .uvc-heading > div:nth-child(3){
+		margin-bottom: 30px;
+		}
+	}
+</style><script type="rocketlazyloadscript" data-rocket-type="text/javascript">
+document.addEventListener("DOMContentLoaded", function(event) { 
+	var load = document.getElementById("load");
+	if(!load.classList.contains('loader-removed')){
+		var removeLoading = setTimeout(function() {
+			load.className += " loader-removed";
+		}, 300);
+	}
+});
+</script>
+		<link rel="icon" href="https://www.fixinguru.sg/wp-content/uploads/2020/03/fixinguru-icon-32.png.webp" type="image/png" sizes="16x16"/><link rel="icon" href="https://www.fixinguru.sg/wp-content/uploads/2020/03/fixinguru-icon-32.png.webp" type="image/png" sizes="32x32"/><link rel="apple-touch-icon" href="https://www.fixinguru.sg/wp-content/uploads/2022/10/we-fix-everything-logo.webp"><link rel="apple-touch-icon" sizes="76x76" href="https://www.fixinguru.sg/wp-content/uploads/2022/10/we-fix-everything-logo.webp"><link rel="apple-touch-icon" sizes="120x120" href="https://www.fixinguru.sg/wp-content/uploads/2022/10/we-fix-everything-logo.webp"><link rel="apple-touch-icon" sizes="152x152" href="https://www.fixinguru.sg/wp-content/uploads/2022/10/we-fix-everything-logo.webp">		<style type="text/css" id="wp-custom-css">
+			@media only screen and (max-width: 720px) {
+
+#pum-581{
+		z-index:-9999;
+	}
+}		</style>
+					<style>
+				:root {
+				--qlwapp-scheme-font-family:inherit;--qlwapp-scheme-font-size:18px;--qlwapp-scheme-icon-size:60px;--qlwapp-scheme-icon-font-size:24px;				}
+			</style>
+			<noscript><style> .wpb_animate_when_almost_visible { opacity: 1; }</style></noscript><style id='the7-custom-inline-css' type='text/css'>
+/*icons box in sidebar text block*/
+.wpb_raw_code  .aio-icon-left{
+	float:left!important;
+	padding:12px;
+}
+.wpb_raw_code  .aio-icon-box {
+	margin-top:16px!important;
+}
+
+/* video player*/
+.rll-youtube-player {
+    padding-bottom: 35px!important;
+}
+.menu-item-text .subtitle-text{
+	color:#999999!important;
+	font-weight:300!important;
+}
+/*remove bgd image for custom buttons*/
+.vc_btn3.vc_btn3-style-custom {
+    background-image: -webkit-linear-gradient(rgba(0,0,0,0),rgba(0,0,0,0) 50%,rgba(0,0,0,0)); 
+    background-image: -o-linear-gradient(rgba(0,0,0,0),rgba(0,0,0,0) 50%,rgba(0,0,0,0));
+    background-image: linear-gradient(rgba(0,0,0,0),rgba(0,0,0,0) 50%,rgba(0,0,0,0));
+}
+
+.fixinguru-bold
+{
+    color: #0B1623!important;
+	font-weight: 700!important;
+}
+/*contact us menu item shortcode*/
+.arcu-menu-item {
+    box-shadow: 0 0 0 0 #eaeaea!important;
+    border: 0px solid #eaeaea!important;
+	  margin-bottom:8px!important;
+	  border-radius:5px!important;
+}
+/*hide scroll to top button*/
+.scroll-top{
+	display:none;
+}
+
+/*hover animation for service box*/
+.fixinguru-popup-box{
+	transition: all .5s ease-in-out; 
+}
+.fixinguru-popup-box:hover{
+	transform: scale(1.05);
+	z-index:99999;
+}
+
+.uvc-main-heading{
+	margin-bottom:15px;
+}
+
+div.fixinguru-letter-spacing-3>a{
+	letter-spacing:3px;
+}
+.fixinguru-white-font h1,
+.fixinguru-white-font h2,
+.fixinguru-white-font h3,
+.fixinguru-white-font div,
+.fixinguru-white-font p{
+	color:#ffffff!important;
+}
+
+/*menu*/
+.fixinguru-menu-btn>a{
+	background-color:#191716;
+	border-radius:5px;
+	padding-top:6px!important;
+	padding-bottom:6px!important;
+	padding-left:12px!important;
+	padding-right:12px!important;
+	color:#191716!important;
+}
+.fixinguru-menu-btn .menu-text{
+	color:#ffffff!important;
+}
+
+
+
+@media screen and (min-width: 1050px){
+	.fixinguru-menu-title>a{
+		background-color:#e8e8e8;
+		padding:5px 10px!important;
+	}
+
+	.fixinguru-menu-title .sub-nav{
+		padding-top:12px;
+		border:1px solid #e8e8e8!important;
+	}
+}
+</style>
+<noscript><style id="rocket-lazyload-nojs-css">.rll-youtube-player, [data-lazy-src]{display:none !important;}</style></noscript></head>
+<body class="post-template-default single single-post postid-982 single-format-standard wp-embed-responsive the7-core-ver-2.7.8 dt-responsive-on right-mobile-menu-close-icon ouside-menu-close-icon mobile-hamburger-close-bg-enable mobile-hamburger-close-bg-hover-enable  fade-medium-mobile-menu-close-icon fade-medium-menu-close-icon srcset-enabled btn-flat custom-btn-color custom-btn-hover-color top-header first-switch-logo-left first-switch-menu-right second-switch-logo-left second-switch-menu-right right-mobile-menu popup-message-style dt-fa-compatibility the7-ver-9.2.1 wpb-js-composer js-comp-ver-6.4.0 vc_responsive">
+
+<!-- The7 9.2.1 -->
+<div id="load" class="">
+	<div class="load-wrap"><!-- wp:image {"id":182,"width":150,"height":150,"sizeSlug":"large"} -->
+<figure class="wp-block-image size-large is-resized"><img src="data:image/svg+xml,%3Csvg%20xmlns='http://www.w3.org/2000/svg'%20viewBox='0%200%20150%20150'%3E%3C/svg%3E" alt="We fix everything Logo" class="wp-image-182" width="150" height="150" data-lazy-src="../wp-content/uploads/2022/10/we-fix-everything-logo.webp" tppabs="https://www.fixinguru.sg/wp-content/uploads/2022/10/we-fix-everything-logo.webp"/><noscript><img src="../wp-content/uploads/2022/10/we-fix-everything-logo.webp" tppabs="https://www.fixinguru.sg/wp-content/uploads/2022/10/we-fix-everything-logo.webp" alt="We fix everything Logo" class="wp-image-182" width="150" height="150"/></noscript></figure>
+<!-- /wp:image --></div>
+</div>
+<div id="page" >
+	<a class="skip-link screen-reader-text" href="#content">Skip to content</a>
+
+<div class="masthead inline-header right widgets full-width small-mobile-menu-icon show-sub-menu-on-hover"  role="banner">
+
+	<div class="top-bar top-bar-empty top-bar-line-hide">
+	<div class="top-bar-bg" ></div>
+	<div class="mini-widgets left-widgets"></div><div class="mini-widgets right-widgets"></div></div>
+
+	<header class="header-bar">
+
+		<div class="branding">
+	<div id="site-title" class="assistive-text">FixinGuru Pte Ltd</div>
+	<div id="site-description" class="assistive-text">FixinGuru Pte Ltd</div>
+	<a class="" href="../index.htm" tppabs="https://www.fixinguru.sg/"><img class=" preload-me" src="data:image/svg+xml,%3Csvg%20xmlns='http://www.w3.org/2000/svg'%20viewBox='0%200%20150%2045'%3E%3C/svg%3E" data-lazy-srcset="https://www.fixinguru.sg/wp-content/uploads/2022/10/FixinGuru-Pte-Ltd-Logo.webp 150w,https://www.fixinguru.sg/wp-content/uploads/2022/10/FixinGuru-Pte-Ltd-Logo.webp 150w" width="150" height="45"   data-lazy-sizes="150px" alt="FixinGuru Pte Ltd" data-lazy-src="../wp-content/uploads/2022/10/FixinGuru-Pte-Ltd-Logo.webp" tppabs="https://www.fixinguru.sg/wp-content/uploads/2022/10/FixinGuru-Pte-Ltd-Logo.webp" /><noscript><img class=" preload-me" src="../wp-content/uploads/2022/10/FixinGuru-Pte-Ltd-Logo.webp" tppabs="https://www.fixinguru.sg/wp-content/uploads/2022/10/FixinGuru-Pte-Ltd-Logo.webp" srcset="https://www.fixinguru.sg/wp-content/uploads/2022/10/FixinGuru-Pte-Ltd-Logo.webp 150w,https://www.fixinguru.sg/wp-content/uploads/2022/10/FixinGuru-Pte-Ltd-Logo.webp 150w" width="150" height="45"   sizes="150px" alt="FixinGuru Pte Ltd" /></noscript></a></div>
+
+		<ul id="primary-menu" class="main-nav" role="menubar"><li class="fixinguru-letter-spacing-3 menu-item menu-item-type-post_type menu-item-object-page menu-item-home menu-item-9 first" role="presentation"><a href="../index.htm" tppabs="https://www.fixinguru.sg/" data-level='1' role="menuitem"><span class="menu-item-text"><span class="menu-text">Home</span></span></a></li> <li class="fixinguru-letter-spacing-3 menu-item menu-item-type-post_type menu-item-object-page menu-item-26" role="presentation"><a href="../about-us/index.htm" tppabs="https://www.fixinguru.sg/about-us/" data-level='1' role="menuitem"><span class="menu-item-text"><span class="menu-text">About</span></span></a></li> <li class="fixinguru-letter-spacing-3 menu-item menu-item-type-custom menu-item-object-custom menu-item-has-children menu-item-28 has-children dt-mega-menu mega-full-width mega-column-4" role="presentation"><a href='#' class='not-clickable-item' data-level='1' role="menuitem"><span class="menu-item-text"><span class="menu-text">Services</span></span></a><div class="dt-mega-menu-wrap"><ul class="sub-nav hover-style-bg" role="menubar"><li class="fixinguru-menu-title menu-item menu-item-type-post_type menu-item-object-page menu-item-has-children menu-item-30 first has-children no-link dt-mega-parent wf-1-4" role="presentation"><a href="../handyman-services/index.htm" tppabs="https://www.fixinguru.sg/handyman-services/" class='not-clickable-item' data-level='2' role="menuitem"><span class="menu-item-text"><span class="menu-text">Handyman Services (A-E)</span></span></a><ul class="sub-nav hover-style-bg" role="menubar"><li class="menu-item menu-item-type-post_type menu-item-object-page menu-item-44 first with-subtitle" role="presentation"><a href="../aircon-servicing-singapore/index.htm" tppabs="https://www.fixinguru.sg/aircon-servicing-singapore/" data-level='3' role="menuitem"><span class="menu-item-text"><span class="menu-text">Airconditioning Servicing</span><span class="subtitle-text">Cleaning / Repair</span></span></a></li> <li class="menu-item menu-item-type-post_type menu-item-object-page menu-item-46 with-subtitle" role="presentation"><a href="../carpenter-singapore/index.htm" tppabs="https://www.fixinguru.sg/carpenter-singapore/" data-level='3' role="menuitem"><span class="menu-item-text"><span class="menu-text">Carpentry Services</span><span class="subtitle-text">Furniture Repair / Door Replacement</span></span></a></li> <li class="menu-item menu-item-type-post_type menu-item-object-page menu-item-165 with-subtitle" role="presentation"><a href="../handover-end-tenancy-cleaning-services/index.htm" tppabs="https://www.fixinguru.sg/handover-end-tenancy-cleaning-services/" data-level='3' role="menuitem"><span class="menu-item-text"><span class="menu-text">Cleaning Services</span><span class="subtitle-text">Home Cleaning / Handover Cleaning</span></span></a></li> <li class="menu-item menu-item-type-post_type menu-item-object-page menu-item-47 with-subtitle" role="presentation"><a href="../door-repair-singapore/index.htm" tppabs="https://www.fixinguru.sg/door-repair-singapore/" data-level='3' role="menuitem"><span class="menu-item-text"><span class="menu-text">Door Repair Services</span><span class="subtitle-text">Door Hinges / Locks / Handles</span></span></a></li> <li class="menu-item menu-item-type-post_type menu-item-object-page menu-item-820" role="presentation"><a href="../door-hinge-repair-services/index.htm" tppabs="https://www.fixinguru.sg/door-hinge-repair-services/" data-level='3' role="menuitem"><span class="menu-item-text"><span class="menu-text">Door Hinge Repair Services</span></span></a></li> <li class="menu-item menu-item-type-post_type menu-item-object-page menu-item-48 with-subtitle" role="presentation"><a href="../handyman-drilling-service-singapore/index.htm" tppabs="https://www.fixinguru.sg/handyman-drilling-service-singapore/" data-level='3' role="menuitem"><span class="menu-item-text"><span class="menu-text">Drilling Services</span><span class="subtitle-text">Installation of Shelves / Curtain Rods</span></span></a></li> <li class="menu-item menu-item-type-post_type menu-item-object-page menu-item-49 with-subtitle" role="presentation"><a href="../electrical-wiring-services-singapore/index.htm" tppabs="https://www.fixinguru.sg/electrical-wiring-services-singapore/" data-level='3' role="menuitem"><span class="menu-item-text"><span class="menu-text">Electrical Services</span><span class="subtitle-text">Repair / Installation / Replacement</span></span></a></li> </ul></li> <li class="fixinguru-menu-title menu-item menu-item-type-custom menu-item-object-custom menu-item-has-children menu-item-58 has-children no-link dt-mega-parent wf-1-4" role="presentation"><a href='#' data-level='2' role="menuitem"><span class="menu-item-text"><span class="menu-text">Handyman Services (F-P)</span></span></a><ul class="sub-nav hover-style-bg" role="menubar"><li class="menu-item menu-item-type-post_type menu-item-object-page menu-item-50 first with-subtitle" role="presentation"><a href="../furniture-assembly-service/index.htm" tppabs="https://www.fixinguru.sg/furniture-assembly-service/" data-level='3' role="menuitem"><span class="menu-item-text"><span class="menu-text">Furniture Assembly Service</span><span class="subtitle-text">Cabinets / Shelves / Tables</span></span></a></li> <li class="menu-item menu-item-type-post_type menu-item-object-page menu-item-325 with-subtitle" role="presentation"><a href="../home-styling-staging/index.htm" tppabs="https://www.fixinguru.sg/home-styling-staging/" data-level='3' role="menuitem"><span class="menu-item-text"><span class="menu-text">Home Styling &#038; Staging</span><span class="subtitle-text">Improve Your Rental Fees</span></span></a></li> <li class="menu-item menu-item-type-post_type menu-item-object-page menu-item-51 with-subtitle" role="presentation"><a href="../locksmith-singapore/index.htm" tppabs="https://www.fixinguru.sg/locksmith-singapore/" data-level='3' role="menuitem"><span class="menu-item-text"><span class="menu-text">Locksmith Services</span><span class="subtitle-text">Unlocking / Key Duplication / Installation</span></span></a></li> <li class="menu-item menu-item-type-post_type menu-item-object-page menu-item-322 with-subtitle" role="presentation"><a href="../movers-services/index.htm" tppabs="https://www.fixinguru.sg/movers-services/" data-level='3' role="menuitem"><span class="menu-item-text"><span class="menu-text">Movers Services</span><span class="subtitle-text">Home Moving / Cross-Border Moving</span></span></a></li> <li class="menu-item menu-item-type-post_type menu-item-object-page menu-item-52 with-subtitle" role="presentation"><a href="../painting-services-singapore/index.htm" tppabs="https://www.fixinguru.sg/painting-services-singapore/" data-level='3' role="menuitem"><span class="menu-item-text"><span class="menu-text">Painting Services</span><span class="subtitle-text">Wall Painting / Touchup Painting</span></span></a></li> <li class="menu-item menu-item-type-post_type menu-item-object-page menu-item-166 with-subtitle" role="presentation"><a href="../plumbing-repair-services-singapore/index.htm" tppabs="https://www.fixinguru.sg/plumbing-repair-services-singapore/" data-level='3' role="menuitem"><span class="menu-item-text"><span class="menu-text">Plumbing Services</span><span class="subtitle-text">Repair / Installation / Replacement</span></span></a></li> <li class="menu-item menu-item-type-custom menu-item-object-custom menu-item-1069" role="presentation"><a href="../pump-repairs/index.htm" tppabs="https://www.fixinguru.sg/pump-repairs/" data-level='3' role="menuitem"><span class="menu-item-text"><span class="menu-text">Pump Repairs</span></span></a></li> </ul></li> <li class="fixinguru-menu-title menu-item menu-item-type-custom menu-item-object-custom menu-item-has-children menu-item-59 has-children no-link dt-mega-parent wf-1-4" role="presentation"><a href='#' data-level='2' role="menuitem"><span class="menu-item-text"><span class="menu-text">Handyman Services (Q-Z)</span></span></a><ul class="sub-nav hover-style-bg" role="menubar"><li class="menu-item menu-item-type-post_type menu-item-object-page menu-item-54 first with-subtitle" role="presentation"><a href="../rubbish-chute-repair-replacement/index.htm" tppabs="https://www.fixinguru.sg/rubbish-chute-repair-replacement/" data-level='3' role="menuitem"><span class="menu-item-text"><span class="menu-text">Rubbish Chute Services</span><span class="subtitle-text">Repair / Replacement</span></span></a></li> <li class="menu-item menu-item-type-post_type menu-item-object-page menu-item-55 with-subtitle" role="presentation"><a href="../tv-bracket-installation/index.htm" tppabs="https://www.fixinguru.sg/tv-bracket-installation/" data-level='3' role="menuitem"><span class="menu-item-text"><span class="menu-text">TV Bracket Installation Services</span><span class="subtitle-text">Installation / Replacement</span></span></a></li> <li class="menu-item menu-item-type-post_type menu-item-object-page menu-item-56 with-subtitle" role="presentation"><a href="../wall-mounting-service/index.htm" tppabs="https://www.fixinguru.sg/wall-mounting-service/" data-level='3' role="menuitem"><span class="menu-item-text"><span class="menu-text">Wall Mounting Services</span><span class="subtitle-text">Mirrors / Shelves / Paintings</span></span></a></li> <li class="menu-item menu-item-type-post_type menu-item-object-page menu-item-57 with-subtitle" role="presentation"><a href="../water-heater-installation-repair/index.htm" tppabs="https://www.fixinguru.sg/water-heater-installation-repair/" data-level='3' role="menuitem"><span class="menu-item-text"><span class="menu-text">Water Heater Installation and Repair Services</span><span class="subtitle-text">Repair / Installation</span></span></a></li> </ul></li> <li class="fixinguru-menu-title menu-item menu-item-type-custom menu-item-object-custom menu-item-has-children menu-item-167 has-children no-link dt-mega-parent wf-1-4" role="presentation"><a href='#' data-level='2' role="menuitem"><span class="menu-item-text"><span class="menu-text">Other Services</span></span></a><ul class="sub-nav hover-style-bg" role="menubar"><li class="menu-item menu-item-type-post_type menu-item-object-page menu-item-764 first" role="presentation"><a href="../islamic-cleaning-services-sertu/index.htm" tppabs="https://www.fixinguru.sg/islamic-cleaning-services-sertu/" data-level='3' role="menuitem"><span class="menu-item-text"><span class="menu-text">Islamic Cleaning Services – Sertu</span></span></a></li> <li class="menu-item menu-item-type-post_type menu-item-object-page menu-item-323 with-subtitle" role="presentation"><a href="../disinfection-services/index.htm" tppabs="https://www.fixinguru.sg/disinfection-services/" data-level='3' role="menuitem"><span class="menu-item-text"><span class="menu-text">Disinfection Services</span><span class="subtitle-text">COVID-19 DISINFECTION</span></span></a></li> <li class="menu-item menu-item-type-post_type menu-item-object-page menu-item-25 with-subtitle" role="presentation"><a href="../apartment-handover-repair-services/index.htm" tppabs="https://www.fixinguru.sg/apartment-handover-repair-services/" data-level='3' role="menuitem"><span class="menu-item-text"><span class="menu-text">Apartment Handover Package</span><span class="subtitle-text">All-In-One Service</span></span></a></li> <li class="menu-item menu-item-type-post_type menu-item-object-page menu-item-345 with-subtitle" role="presentation"><a href="../home-styling-staging/index.htm" tppabs="https://www.fixinguru.sg/home-styling-staging/" data-level='3' role="menuitem"><span class="menu-item-text"><span class="menu-text">Home Styling &#038; Staging</span><span class="subtitle-text">Increase potential rental fees</span></span></a></li> </ul></li> </ul></div></li> <li class="menu-item menu-item-type-post_type menu-item-object-page menu-item-326" role="presentation"><a href="../pricelist/index.htm" tppabs="https://www.fixinguru.sg/pricelist/" data-level='1' role="menuitem"><span class="menu-item-text"><span class="menu-text">Pricelist</span></span></a></li> <li class="menu-item menu-item-type-custom menu-item-object-custom menu-item-169" role="presentation"><a href="javascript:if(confirm('https://www.google.com/search?q=fixinguru.sg+singapore+google+review&rlz=1C1RXQR_enIN1007IN1007&sxsrf=ALiCzsZ4grndFtz0QQYAAQMXiWbx_L9zXg%3A1658818745732&ei=uZDfYoirLN-OseMPtN-HkAY&ved=0ahUKEwjI69ew_ZX5AhVfR2wGHbTvAWIQ4dUDCA4&uact=5&oq=fixinguru.sg+singapore+google+review&gs_lcp=Cgdnd3Mtd2l6EAMyBQghEKABOgcIABBHELADOgcIIRAKEKABSgQIQRgASgQIRhgAUIcDWKgQYM0RaAFwAXgAgAGiAYgB7guSAQQ0LjEwmAEAoAEByAEIwAEB&sclient=gws-wiz  ))window.location='https://www.google.com/search?q=fixinguru.sg+singapore+google+review&rlz=1C1RXQR_enIN1007IN1007&sxsrf=ALiCzsZ4grndFtz0QQYAAQMXiWbx_L9zXg%3A1658818745732&ei=uZDfYoirLN-OseMPtN-HkAY&ved=0ahUKEwjI69ew_ZX5AhVfR2wGHbTvAWIQ4dUDCA4&uact=5&oq=fixinguru.sg+singapore+google+review&gs_lcp=Cgdnd3Mtd2l6EAMyBQghEKABOgcIABBHELADOgcIIRAKEKABSgQIQRgASgQIRhgAUIcDWKgQYM0RaAFwAXgAgAGiAYgB7guSAQQ0LjEwmAEAoAEByAEIwAEB&sclient=gws-wiz#lrd=0x31da11bfb5daf523:0x4e2920cdef9c7a07,1,,,'" tppabs="https://www.google.com/search?q=fixinguru.sg+singapore+google+review&rlz=1C1RXQR_enIN1007IN1007&sxsrf=ALiCzsZ4grndFtz0QQYAAQMXiWbx_L9zXg%3A1658818745732&ei=uZDfYoirLN-OseMPtN-HkAY&ved=0ahUKEwjI69ew_ZX5AhVfR2wGHbTvAWIQ4dUDCA4&uact=5&oq=fixinguru.sg+singapore+google+review&gs_lcp=Cgdnd3Mtd2l6EAMyBQghEKABOgcIABBHELADOgcIIRAKEKABSgQIQRgASgQIRhgAUIcDWKgQYM0RaAFwAXgAgAGiAYgB7guSAQQ0LjEwmAEAoAEByAEIwAEB&sclient=gws-wiz#lrd=0x31da11bfb5daf523:0x4e2920cdef9c7a07,1,,," target='_blank' data-level='1' role="menuitem"><span class="menu-item-text"><span class="menu-text">Reviews</span></span></a></li> <li class="menu-item menu-item-type-post_type menu-item-object-page menu-item-339" role="presentation"><a href="../property-agents/index.htm" tppabs="https://www.fixinguru.sg/property-agents/" data-level='1' role="menuitem"><span class="menu-item-text"><span class="menu-text">Property Agents</span></span></a></li> <li class="menu-item menu-item-type-post_type menu-item-object-page menu-item-1042" role="presentation"><a href="../commercial-renovation/index.htm" tppabs="https://www.fixinguru.sg/commercial-renovation/" data-level='1' role="menuitem"><span class="menu-item-text"><span class="menu-text">Commercial Renovation</span></span></a></li> <li class="menu-item menu-item-type-post_type menu-item-object-page menu-item-640" role="presentation"><a href="../blog/index.htm" tppabs="https://www.fixinguru.sg/blog/" data-level='1' role="menuitem"><span class="menu-item-text"><span class="menu-text">Blog</span></span></a></li> <li class="fixinguru-menu-btn menu-item menu-item-type-custom menu-item-object-custom menu-item-60" role="presentation"><a href='tel:6587979735' data-level='1' role="menuitem"><span class="menu-item-text"><span class="menu-text">Call Us +65 8797 9735</span></span></a></li> </ul>
+		<div class="mini-widgets"><a href="../handyman-services/index.htm" tppabs="https://www.fixinguru.sg/handyman-services/" class="microwidget-btn mini-button header-elements-button-1 hide-on-desktop near-logo-first-switch near-logo-second-switch microwidget-btn-bg-on microwidget-btn-hover-bg-on disable-animation-bg border-on hover-border-on btn-icon-align-left" target="_blank"><i class="fas fa-tools"></i><span>SERVICES</span></a></div>
+	</header>
+
+</div>
+<div class="dt-mobile-header mobile-menu-show-divider">
+	<div class="dt-close-mobile-menu-icon"><div class="close-line-wrap"><span class="close-line"></span><span class="close-line"></span><span class="close-line"></span></div></div>	<ul id="mobile-menu" class="mobile-main-nav" role="menubar">
+		<li class="fixinguru-letter-spacing-3 menu-item menu-item-type-post_type menu-item-object-page menu-item-home menu-item-9 first" role="presentation"><a href="../index.htm" tppabs="https://www.fixinguru.sg/" data-level='1' role="menuitem"><span class="menu-item-text"><span class="menu-text">Home</span></span></a></li> <li class="fixinguru-letter-spacing-3 menu-item menu-item-type-post_type menu-item-object-page menu-item-26" role="presentation"><a href="../about-us/index.htm" tppabs="https://www.fixinguru.sg/about-us/" data-level='1' role="menuitem"><span class="menu-item-text"><span class="menu-text">About</span></span></a></li> <li class="fixinguru-letter-spacing-3 menu-item menu-item-type-custom menu-item-object-custom menu-item-has-children menu-item-28 has-children dt-mega-menu mega-full-width mega-column-4" role="presentation"><a href='#' class='not-clickable-item' data-level='1' role="menuitem"><span class="menu-item-text"><span class="menu-text">Services</span></span></a><div class="dt-mega-menu-wrap"><ul class="sub-nav hover-style-bg" role="menubar"><li class="fixinguru-menu-title menu-item menu-item-type-post_type menu-item-object-page menu-item-has-children menu-item-30 first has-children no-link dt-mega-parent wf-1-4" role="presentation"><a href="../handyman-services/index.htm" tppabs="https://www.fixinguru.sg/handyman-services/" class='not-clickable-item' data-level='2' role="menuitem"><span class="menu-item-text"><span class="menu-text">Handyman Services (A-E)</span></span></a><ul class="sub-nav hover-style-bg" role="menubar"><li class="menu-item menu-item-type-post_type menu-item-object-page menu-item-44 first with-subtitle" role="presentation"><a href="../aircon-servicing-singapore/index.htm" tppabs="https://www.fixinguru.sg/aircon-servicing-singapore/" data-level='3' role="menuitem"><span class="menu-item-text"><span class="menu-text">Airconditioning Servicing</span><span class="subtitle-text">Cleaning / Repair</span></span></a></li> <li class="menu-item menu-item-type-post_type menu-item-object-page menu-item-46 with-subtitle" role="presentation"><a href="../carpenter-singapore/index.htm" tppabs="https://www.fixinguru.sg/carpenter-singapore/" data-level='3' role="menuitem"><span class="menu-item-text"><span class="menu-text">Carpentry Services</span><span class="subtitle-text">Furniture Repair / Door Replacement</span></span></a></li> <li class="menu-item menu-item-type-post_type menu-item-object-page menu-item-165 with-subtitle" role="presentation"><a href="../handover-end-tenancy-cleaning-services/index.htm" tppabs="https://www.fixinguru.sg/handover-end-tenancy-cleaning-services/" data-level='3' role="menuitem"><span class="menu-item-text"><span class="menu-text">Cleaning Services</span><span class="subtitle-text">Home Cleaning / Handover Cleaning</span></span></a></li> <li class="menu-item menu-item-type-post_type menu-item-object-page menu-item-47 with-subtitle" role="presentation"><a href="../door-repair-singapore/index.htm" tppabs="https://www.fixinguru.sg/door-repair-singapore/" data-level='3' role="menuitem"><span class="menu-item-text"><span class="menu-text">Door Repair Services</span><span class="subtitle-text">Door Hinges / Locks / Handles</span></span></a></li> <li class="menu-item menu-item-type-post_type menu-item-object-page menu-item-820" role="presentation"><a href="../door-hinge-repair-services/index.htm" tppabs="https://www.fixinguru.sg/door-hinge-repair-services/" data-level='3' role="menuitem"><span class="menu-item-text"><span class="menu-text">Door Hinge Repair Services</span></span></a></li> <li class="menu-item menu-item-type-post_type menu-item-object-page menu-item-48 with-subtitle" role="presentation"><a href="../handyman-drilling-service-singapore/index.htm" tppabs="https://www.fixinguru.sg/handyman-drilling-service-singapore/" data-level='3' role="menuitem"><span class="menu-item-text"><span class="menu-text">Drilling Services</span><span class="subtitle-text">Installation of Shelves / Curtain Rods</span></span></a></li> <li class="menu-item menu-item-type-post_type menu-item-object-page menu-item-49 with-subtitle" role="presentation"><a href="../electrical-wiring-services-singapore/index.htm" tppabs="https://www.fixinguru.sg/electrical-wiring-services-singapore/" data-level='3' role="menuitem"><span class="menu-item-text"><span class="menu-text">Electrical Services</span><span class="subtitle-text">Repair / Installation / Replacement</span></span></a></li> </ul></li> <li class="fixinguru-menu-title menu-item menu-item-type-custom menu-item-object-custom menu-item-has-children menu-item-58 has-children no-link dt-mega-parent wf-1-4" role="presentation"><a href='#' data-level='2' role="menuitem"><span class="menu-item-text"><span class="menu-text">Handyman Services (F-P)</span></span></a><ul class="sub-nav hover-style-bg" role="menubar"><li class="menu-item menu-item-type-post_type menu-item-object-page menu-item-50 first with-subtitle" role="presentation"><a href="../furniture-assembly-service/index.htm" tppabs="https://www.fixinguru.sg/furniture-assembly-service/" data-level='3' role="menuitem"><span class="menu-item-text"><span class="menu-text">Furniture Assembly Service</span><span class="subtitle-text">Cabinets / Shelves / Tables</span></span></a></li> <li class="menu-item menu-item-type-post_type menu-item-object-page menu-item-325 with-subtitle" role="presentation"><a href="../home-styling-staging/index.htm" tppabs="https://www.fixinguru.sg/home-styling-staging/" data-level='3' role="menuitem"><span class="menu-item-text"><span class="menu-text">Home Styling &#038; Staging</span><span class="subtitle-text">Improve Your Rental Fees</span></span></a></li> <li class="menu-item menu-item-type-post_type menu-item-object-page menu-item-51 with-subtitle" role="presentation"><a href="../locksmith-singapore/index.htm" tppabs="https://www.fixinguru.sg/locksmith-singapore/" data-level='3' role="menuitem"><span class="menu-item-text"><span class="menu-text">Locksmith Services</span><span class="subtitle-text">Unlocking / Key Duplication / Installation</span></span></a></li> <li class="menu-item menu-item-type-post_type menu-item-object-page menu-item-322 with-subtitle" role="presentation"><a href="../movers-services/index.htm" tppabs="https://www.fixinguru.sg/movers-services/" data-level='3' role="menuitem"><span class="menu-item-text"><span class="menu-text">Movers Services</span><span class="subtitle-text">Home Moving / Cross-Border Moving</span></span></a></li> <li class="menu-item menu-item-type-post_type menu-item-object-page menu-item-52 with-subtitle" role="presentation"><a href="../painting-services-singapore/index.htm" tppabs="https://www.fixinguru.sg/painting-services-singapore/" data-level='3' role="menuitem"><span class="menu-item-text"><span class="menu-text">Painting Services</span><span class="subtitle-text">Wall Painting / Touchup Painting</span></span></a></li> <li class="menu-item menu-item-type-post_type menu-item-object-page menu-item-166 with-subtitle" role="presentation"><a href="../plumbing-repair-services-singapore/index.htm" tppabs="https://www.fixinguru.sg/plumbing-repair-services-singapore/" data-level='3' role="menuitem"><span class="menu-item-text"><span class="menu-text">Plumbing Services</span><span class="subtitle-text">Repair / Installation / Replacement</span></span></a></li> <li class="menu-item menu-item-type-custom menu-item-object-custom menu-item-1069" role="presentation"><a href="../pump-repairs/index.htm" tppabs="https://www.fixinguru.sg/pump-repairs/" data-level='3' role="menuitem"><span class="menu-item-text"><span class="menu-text">Pump Repairs</span></span></a></li> </ul></li> <li class="fixinguru-menu-title menu-item menu-item-type-custom menu-item-object-custom menu-item-has-children menu-item-59 has-children no-link dt-mega-parent wf-1-4" role="presentation"><a href='#' data-level='2' role="menuitem"><span class="menu-item-text"><span class="menu-text">Handyman Services (Q-Z)</span></span></a><ul class="sub-nav hover-style-bg" role="menubar"><li class="menu-item menu-item-type-post_type menu-item-object-page menu-item-54 first with-subtitle" role="presentation"><a href="../rubbish-chute-repair-replacement/index.htm" tppabs="https://www.fixinguru.sg/rubbish-chute-repair-replacement/" data-level='3' role="menuitem"><span class="menu-item-text"><span class="menu-text">Rubbish Chute Services</span><span class="subtitle-text">Repair / Replacement</span></span></a></li> <li class="menu-item menu-item-type-post_type menu-item-object-page menu-item-55 with-subtitle" role="presentation"><a href="../tv-bracket-installation/index.htm" tppabs="https://www.fixinguru.sg/tv-bracket-installation/" data-level='3' role="menuitem"><span class="menu-item-text"><span class="menu-text">TV Bracket Installation Services</span><span class="subtitle-text">Installation / Replacement</span></span></a></li> <li class="menu-item menu-item-type-post_type menu-item-object-page menu-item-56 with-subtitle" role="presentation"><a href="../wall-mounting-service/index.htm" tppabs="https://www.fixinguru.sg/wall-mounting-service/" data-level='3' role="menuitem"><span class="menu-item-text"><span class="menu-text">Wall Mounting Services</span><span class="subtitle-text">Mirrors / Shelves / Paintings</span></span></a></li> <li class="menu-item menu-item-type-post_type menu-item-object-page menu-item-57 with-subtitle" role="presentation"><a href="../water-heater-installation-repair/index.htm" tppabs="https://www.fixinguru.sg/water-heater-installation-repair/" data-level='3' role="menuitem"><span class="menu-item-text"><span class="menu-text">Water Heater Installation and Repair Services</span><span class="subtitle-text">Repair / Installation</span></span></a></li> </ul></li> <li class="fixinguru-menu-title menu-item menu-item-type-custom menu-item-object-custom menu-item-has-children menu-item-167 has-children no-link dt-mega-parent wf-1-4" role="presentation"><a href='#' data-level='2' role="menuitem"><span class="menu-item-text"><span class="menu-text">Other Services</span></span></a><ul class="sub-nav hover-style-bg" role="menubar"><li class="menu-item menu-item-type-post_type menu-item-object-page menu-item-764 first" role="presentation"><a href="../islamic-cleaning-services-sertu/index.htm" tppabs="https://www.fixinguru.sg/islamic-cleaning-services-sertu/" data-level='3' role="menuitem"><span class="menu-item-text"><span class="menu-text">Islamic Cleaning Services – Sertu</span></span></a></li> <li class="menu-item menu-item-type-post_type menu-item-object-page menu-item-323 with-subtitle" role="presentation"><a href="../disinfection-services/index.htm" tppabs="https://www.fixinguru.sg/disinfection-services/" data-level='3' role="menuitem"><span class="menu-item-text"><span class="menu-text">Disinfection Services</span><span class="subtitle-text">COVID-19 DISINFECTION</span></span></a></li> <li class="menu-item menu-item-type-post_type menu-item-object-page menu-item-25 with-subtitle" role="presentation"><a href="../apartment-handover-repair-services/index.htm" tppabs="https://www.fixinguru.sg/apartment-handover-repair-services/" data-level='3' role="menuitem"><span class="menu-item-text"><span class="menu-text">Apartment Handover Package</span><span class="subtitle-text">All-In-One Service</span></span></a></li> <li class="menu-item menu-item-type-post_type menu-item-object-page menu-item-345 with-subtitle" role="presentation"><a href="../home-styling-staging/index.htm" tppabs="https://www.fixinguru.sg/home-styling-staging/" data-level='3' role="menuitem"><span class="menu-item-text"><span class="menu-text">Home Styling &#038; Staging</span><span class="subtitle-text">Increase potential rental fees</span></span></a></li> </ul></li> </ul></div></li> <li class="menu-item menu-item-type-post_type menu-item-object-page menu-item-326" role="presentation"><a href="../pricelist/index.htm" tppabs="https://www.fixinguru.sg/pricelist/" data-level='1' role="menuitem"><span class="menu-item-text"><span class="menu-text">Pricelist</span></span></a></li> <li class="menu-item menu-item-type-custom menu-item-object-custom menu-item-169" role="presentation"><a href="javascript:if(confirm('https://www.google.com/search?q=fixinguru.sg+singapore+google+review&rlz=1C1RXQR_enIN1007IN1007&sxsrf=ALiCzsZ4grndFtz0QQYAAQMXiWbx_L9zXg%3A1658818745732&ei=uZDfYoirLN-OseMPtN-HkAY&ved=0ahUKEwjI69ew_ZX5AhVfR2wGHbTvAWIQ4dUDCA4&uact=5&oq=fixinguru.sg+singapore+google+review&gs_lcp=Cgdnd3Mtd2l6EAMyBQghEKABOgcIABBHELADOgcIIRAKEKABSgQIQRgASgQIRhgAUIcDWKgQYM0RaAFwAXgAgAGiAYgB7guSAQQ0LjEwmAEAoAEByAEIwAEB&sclient=gws-wiz  ))window.location='https://www.google.com/search?q=fixinguru.sg+singapore+google+review&rlz=1C1RXQR_enIN1007IN1007&sxsrf=ALiCzsZ4grndFtz0QQYAAQMXiWbx_L9zXg%3A1658818745732&ei=uZDfYoirLN-OseMPtN-HkAY&ved=0ahUKEwjI69ew_ZX5AhVfR2wGHbTvAWIQ4dUDCA4&uact=5&oq=fixinguru.sg+singapore+google+review&gs_lcp=Cgdnd3Mtd2l6EAMyBQghEKABOgcIABBHELADOgcIIRAKEKABSgQIQRgASgQIRhgAUIcDWKgQYM0RaAFwAXgAgAGiAYgB7guSAQQ0LjEwmAEAoAEByAEIwAEB&sclient=gws-wiz#lrd=0x31da11bfb5daf523:0x4e2920cdef9c7a07,1,,,'" tppabs="https://www.google.com/search?q=fixinguru.sg+singapore+google+review&rlz=1C1RXQR_enIN1007IN1007&sxsrf=ALiCzsZ4grndFtz0QQYAAQMXiWbx_L9zXg%3A1658818745732&ei=uZDfYoirLN-OseMPtN-HkAY&ved=0ahUKEwjI69ew_ZX5AhVfR2wGHbTvAWIQ4dUDCA4&uact=5&oq=fixinguru.sg+singapore+google+review&gs_lcp=Cgdnd3Mtd2l6EAMyBQghEKABOgcIABBHELADOgcIIRAKEKABSgQIQRgASgQIRhgAUIcDWKgQYM0RaAFwAXgAgAGiAYgB7guSAQQ0LjEwmAEAoAEByAEIwAEB&sclient=gws-wiz#lrd=0x31da11bfb5daf523:0x4e2920cdef9c7a07,1,,," target='_blank' data-level='1' role="menuitem"><span class="menu-item-text"><span class="menu-text">Reviews</span></span></a></li> <li class="menu-item menu-item-type-post_type menu-item-object-page menu-item-339" role="presentation"><a href="../property-agents/index.htm" tppabs="https://www.fixinguru.sg/property-agents/" data-level='1' role="menuitem"><span class="menu-item-text"><span class="menu-text">Property Agents</span></span></a></li> <li class="menu-item menu-item-type-post_type menu-item-object-page menu-item-1042" role="presentation"><a href="../commercial-renovation/index.htm" tppabs="https://www.fixinguru.sg/commercial-renovation/" data-level='1' role="menuitem"><span class="menu-item-text"><span class="menu-text">Commercial Renovation</span></span></a></li> <li class="menu-item menu-item-type-post_type menu-item-object-page menu-item-640" role="presentation"><a href="../blog/index.htm" tppabs="https://www.fixinguru.sg/blog/" data-level='1' role="menuitem"><span class="menu-item-text"><span class="menu-text">Blog</span></span></a></li> <li class="fixinguru-menu-btn menu-item menu-item-type-custom menu-item-object-custom menu-item-60" role="presentation"><a href='tel:6587979735' data-level='1' role="menuitem"><span class="menu-item-text"><span class="menu-text">Call Us +65 8797 9735</span></span></a></li> 	</ul>
+	<div class='mobile-mini-widgets-in-menu'></div>
+</div>
+
+
+		<div class="page-title title-center solid-bg breadcrumbs-mobile-off page-title-responsive-enabled">
+			<div class="wf-wrap">
+
+				<div class="page-title-head hgroup"><h1 class="entry-title">4 benefits of a clean home</h1></div><div class="page-title-breadcrumbs"><div class="assistive-text">You are here:</div><ol class="breadcrumbs text-small" itemscope itemtype="https://schema.org/BreadcrumbList"><li itemprop="itemListElement" itemscope itemtype="https://schema.org/ListItem"><a itemprop="item" href="../index.htm" tppabs="https://www.fixinguru.sg/" title=""><span itemprop="name">Home</span></a><meta itemprop="position" content="1" /></li><li itemprop="itemListElement" itemscope itemtype="https://schema.org/ListItem"><a itemprop="item" href="../category/clean-home/index.htm" tppabs="https://www.fixinguru.sg/category/clean-home/" title=""><span itemprop="name">Clean home</span></a><meta itemprop="position" content="2" /></li><li class="current" itemprop="itemListElement" itemscope itemtype="https://schema.org/ListItem"><span itemprop="name">4 benefits of a clean&hellip;</span><meta itemprop="position" content="3" /></li></ol></div>			</div>
+		</div>
+
+		
+
+<div id="main" class="sidebar-right sidebar-divider-vertical">
+
+	
+	<div class="main-gradient"></div>
+	<div class="wf-wrap">
+	<div class="wf-container-main">
+
+	
+
+			<div id="content" class="content" role="main">
+
+				
+<article id="post-982" class="vertical-fancy-style post-982 post type-post status-publish format-standard has-post-thumbnail category-clean-home category-cleaning-company-singapore tag-cleaning-company-singapore tag-disinfection-services-singapore tag-hdb-rubbish-chute-replacement tag-rubbish-chute-repair category-66 category-67 description-off">
+
+	<div class="post-thumbnail"><div class="fancy-date"><a title="4:09 pm" href="../index.htm" tppabs="https://www.fixinguru.sg/2023/05/19/" rel="nofollow"><span class="entry-month">May</span><span class="entry-date updated">19</span><span class="entry-year">2023</span></a></div><span class="fancy-categories"><a href="../category/clean-home/index.htm" tppabs="https://www.fixinguru.sg/category/clean-home/" rel="category tag">Clean home</a><a href="../category/cleaning-company-singapore/index.htm" tppabs="https://www.fixinguru.sg/category/cleaning-company-singapore/" rel="category tag">cleaning company singapore</a></span><img class="preload-me" src="data:image/svg+xml,%3Csvg%20xmlns='http://www.w3.org/2000/svg'%20viewBox='0%200%201100%20550'%3E%3C/svg%3E" data-lazy-srcset="https://www.fixinguru.sg/wp-content/uploads/2023/05/4-benefits-of-a-clean-home-1.jpg 1100w" data-lazy-sizes="1100px" width="1100" height="550"  title="4-benefits-of-a-clean-home" alt="4 benefits of a clean home" data-lazy-src="../wp-content/uploads/2023/05/4-benefits-of-a-clean-home-1.jpg" tppabs="https://www.fixinguru.sg/wp-content/uploads/2023/05/4-benefits-of-a-clean-home-1.jpg" /><noscript><img class="preload-me" src="../wp-content/uploads/2023/05/4-benefits-of-a-clean-home-1.jpg" tppabs="https://www.fixinguru.sg/wp-content/uploads/2023/05/4-benefits-of-a-clean-home-1.jpg" srcset="https://www.fixinguru.sg/wp-content/uploads/2023/05/4-benefits-of-a-clean-home-1.jpg 1100w" sizes="1100px" width="1100" height="550"  title="4-benefits-of-a-clean-home" alt="4 benefits of a clean home" /></noscript></div><div class="entry-content"><?php
+if ( function_exists('yoast_breadcrumb') ) {
+yoast_breadcrumb( '</p><p id=“breadcrumbs”>','</p><p>' );
+}
+?>
+<p>Buying a house is perhaps one of the biggest milestones in life. From decorating the place to your own liking and ensuring a clean living environment, new homeowners would definitely find pride in taking care of the place.&nbsp;</p>
+
+
+
+<p>However, clutter and mess tend to pile up over the years, leading to limited storage space and pests. The more it piles up, the more difficult it becomes to clean your house and eventually your home may not even feel like home anymore.</p>
+
+
+
+<p>So why does clutter affect our perception of the house? According to a <a href="javascript:if(confirm('https://www.sciencedirect.com/science/article/abs/pii/S0272494416300159?casa_token=WCffSeyjNDkAAAAA:l-vziLZDmCiLEayU0ZBGk1ezfasTi48oNYc1mXO46Rkk1lfNrdXBbFd437Bd69rwn1GExFKQHKM  ))window.location='https://www.sciencedirect.com/science/article/abs/pii/S0272494416300159?casa_token=WCffSeyjNDkAAAAA:l-vziLZDmCiLEayU0ZBGk1ezfasTi48oNYc1mXO46Rkk1lfNrdXBbFd437Bd69rwn1GExFKQHKM'" tppabs="https://www.sciencedirect.com/science/article/abs/pii/S0272494416300159?casa_token=WCffSeyjNDkAAAAA:l-vziLZDmCiLEayU0ZBGk1ezfasTi48oNYc1mXO46Rkk1lfNrdXBbFd437Bd69rwn1GExFKQHKM" target="_blank" aria-label=" (opens in a new tab)" rel="noreferrer noopener" class="ek-link">study</a> conducted by the Journal of Environmental Psychology, clutter can affect one’s mental health, leaving us feeling stressed and anxious over a lack of control.</p>
+
+
+
+<p>Hence, this highlights the importance of cleaning your home. Not convinced? Here are 4 benefits of a clean home:</p>
+
+
+
+<p><strong>1) Keeps the germs and bacteria at bay</strong></p>
+
+
+
+<ol>
+<li></li>
+</ol>
+
+
+
+<p>Due to Singapore’s humidity, germs and bacteria are able to thrive, particularly in dark and moist areas that are left mostly untouched. Especially now with COVID-19 cases rising, it is of the utmost importance to keep your home clean and safe. Should you require any COVID-19 <a href="../disinfection-services/index.htm" tppabs="https://www.fixinguru.sg/disinfection-services/" class="ek-link">disinfection services</a> for your home, FixinGuru ensures to disinfect every corner of your home and eliminate the virus permanently.&nbsp;</p>
+
+
+
+<p><strong>2) Enhances air quality</strong></p>
+
+
+
+<p>Air pollution in households is common as a result of poor ventilation and the formation of dust particles. Unbeknownst to many, excessive inhalation of dust poses a health threat to vulnerable groups like young children and the elderly.&nbsp;</p>
+
+
+
+<p>An unkempt house is the perfect breeding ground for dust and thus, cleaning your home is essential for eradicating dust particles and allergens, improving overall air quality. Cleaner air also leads to a better quality of sleep.&nbsp;</p>
+
+
+
+<p>While the solution to cleaning seems rather simple, sweeping the house may whip up dust that has already settled on the surface. This results in triggering allergic reactions. To avoid all the hassle, seek professional service from our <a href="../handover-end-tenancy-cleaning-services/index.htm" tppabs="https://www.fixinguru.sg/handover-end-tenancy-cleaning-services/" class="ek-link">cleaning company</a> to assess the situation and act accordingly.&nbsp;</p>
+
+
+
+<figure class="wp-block-image size-full"><img fetchpriority="high" decoding="async" width="725" height="453" src="data:image/svg+xml,%3Csvg%20xmlns='http://www.w3.org/2000/svg'%20viewBox='0%200%20725%20453'%3E%3C/svg%3E" alt="Enhances air quality-disinfection service singapore" class="wp-image-984" data-lazy-srcset="https://www.fixinguru.sg/wp-content/uploads/2023/05/Enhances-air-quality-disinfection-service-singapore.jpg 725w, https://www.fixinguru.sg/wp-content/uploads/2023/05/Enhances-air-quality-disinfection-service-singapore-300x187.jpg 300w" data-lazy-sizes="(max-width: 725px) 100vw, 725px" data-lazy-src="../wp-content/uploads/2023/05/Enhances-air-quality-disinfection-service-singapore.jpg" tppabs="https://www.fixinguru.sg/wp-content/uploads/2023/05/Enhances-air-quality-disinfection-service-singapore.jpg" /><noscript><img fetchpriority="high" decoding="async" width="725" height="453" src="../wp-content/uploads/2023/05/Enhances-air-quality-disinfection-service-singapore.jpg" tppabs="https://www.fixinguru.sg/wp-content/uploads/2023/05/Enhances-air-quality-disinfection-service-singapore.jpg" alt="Enhances air quality-disinfection service singapore" class="wp-image-984" srcset="https://www.fixinguru.sg/wp-content/uploads/2023/05/Enhances-air-quality-disinfection-service-singapore.jpg 725w, https://www.fixinguru.sg/wp-content/uploads/2023/05/Enhances-air-quality-disinfection-service-singapore-300x187.jpg 300w" sizes="(max-width: 725px) 100vw, 725px" /></noscript></figure>
+
+
+
+<p><strong>3) Sharpen your focus</strong></p>
+
+
+
+<p>In general, clutter gives the impression of a messy and chaotic space. It also keeps you distracted from visual sight and makes it difficult to search for items that are hidden among the mess. Decluttering your space gives the home a lease of new life, enabling you to finally see clearly where all your items are placed. Searching for something you need becomes effortless and much less time consuming.&nbsp;&nbsp;</p>
+
+
+
+<p><strong>4) Eliminates chances of pests infestations</strong></p>
+
+
+
+<p>Clutter and mess make for the ideal invitation for pests like cockroaches into your home. Time to declutter once and for all! However, if you are still noticing these unsightly creatures despite removing clutter they may come from other sources.&nbsp;</p>
+
+
+
+<p>Especially in older HDB flats and condominiums, the rubbish chute is commonly found inside the house. When it is not sealed properly, pests can easily travel through these chutes into your home. Should you have issues closing your rubbish chute fully, it is advisable to get your <a href="../rubbish-chute-repair-replacement/index.htm" tppabs="https://www.fixinguru.sg/rubbish-chute-repair-replacement/" class="ek-link">rubbish chute repaired</a>. Alternatively, you may want to consider HDB rubbish chute replacement services if you realise that your chute has become faulty.</p>
+
+
+
+<p>Learn more: <a href="../consequences-of-a-dirty-rubbish-chute/index.htm" tppabs="https://www.fixinguru.sg/consequences-of-a-dirty-rubbish-chute/" class="ek-link">Consequences of a dirty rubbish chute</a></p>
+
+
+
+<p>Your home is a sacred place for living and recreational purposes. To recharge and rest comfortably after a long day, it is recommended to keep your house tidy and clear of clutter. Keeping your house clean has never been easy but the end result is worth it, keeping you and your loved ones safe from potential bacteria and pests from developing.&nbsp;</p>
+
+
+
+<p>Take control of the clutter in your home! FixinGuru is your one-stop centre for cleaning and handyman services. <a href="../index.htm" tppabs="https://www.fixinguru.sg/">Engage us for your housing needs today!</a></p>
+<span class="cp-load-after-post"></span></div><div class="post-meta wf-mobile-collapsed"><div class="entry-meta"><span class="category-link">Categories:&nbsp;<a href="../category/clean-home/index.htm" tppabs="https://www.fixinguru.sg/category/clean-home/" >Clean home</a>, <a href="../category/cleaning-company-singapore/index.htm" tppabs="https://www.fixinguru.sg/category/cleaning-company-singapore/" >cleaning company singapore</a></span><a class="author vcard" href="../index.htm" tppabs="https://www.fixinguru.sg/author/fixinguru-admin/" title="View all posts by FixinGuru" rel="author">By <span class="fn">FixinGuru</span></a><a href="../index.htm" tppabs="https://www.fixinguru.sg/2023/05/19/" title="4:09 pm" class="data-link" rel="bookmark"><time class="entry-date updated" datetime="2023-05-19T16:09:03+08:00">May 19, 2023</time></a><a href="index.htm#respond" tppabs="https://www.fixinguru.sg/4-benefits-of-a-clean-home/#respond" class="comment-link" >Leave a comment</a></div><div class="entry-tags">Tags:&nbsp;<a href="../tag/cleaning-company-singapore/index.htm" tppabs="https://www.fixinguru.sg/tag/cleaning-company-singapore/" rel="tag">cleaning company singapore</a><a href="../tag/disinfection-services-singapore/index.htm" tppabs="https://www.fixinguru.sg/tag/disinfection-services-singapore/" rel="tag">disinfection services singapore</a><a href="../tag/hdb-rubbish-chute-replacement/index.htm" tppabs="https://www.fixinguru.sg/tag/hdb-rubbish-chute-replacement/" rel="tag">hdb rubbish chute replacement</a><a href="../tag/rubbish-chute-repair/index.htm" tppabs="https://www.fixinguru.sg/tag/rubbish-chute-repair/" rel="tag">rubbish chute repair</a></div></div>		<div class="author-info entry-author">
+			<span class="author-avatar no-avatar"></span>			<div class="author-description">
+				<h4><span class="author-heading">Author:</span>&nbsp;FixinGuru</h4>
+								<p class="author-bio"></p>
+			</div>
+		</div>
+	<nav class="navigation post-navigation" role="navigation"><h2 class="screen-reader-text">Post navigation</h2><div class="nav-links"><a class="nav-previous" href="../an-ultimate-guide-to-sertu-cleaning/index.htm" tppabs="https://www.fixinguru.sg/an-ultimate-guide-to-sertu-cleaning/" rel="prev"><i class="icomoon-the7-font-the7-arrow-29-3" aria-hidden="true"></i><span class="meta-nav" aria-hidden="true">Previous</span><span class="screen-reader-text">Previous post:</span><span class="post-title h4-size">An ultimate guide to sertu cleaning</span></a><a class="nav-next" href="../important-areas-to-cover-when-moving-in-to-your-new-home/index.htm" tppabs="https://www.fixinguru.sg/important-areas-to-cover-when-moving-in-to-your-new-home/" rel="next"><i class="icomoon-the7-font-the7-arrow-29-2" aria-hidden="true"></i><span class="meta-nav" aria-hidden="true">Next</span><span class="screen-reader-text">Next post:</span><span class="post-title h4-size">Important areas to cover when moving in to your new home</span></a></div></nav>
+</article>
+
+	<div id="comments" class="comments-area">
+
+	
+		
+		<div id="respond" class="comment-respond">
+		<h3 id="reply-title" class="comment-reply-title">Leave a Reply <small><a rel="nofollow" id="cancel-comment-reply-link" href="index.htm#respond" tppabs="https://www.fixinguru.sg/4-benefits-of-a-clean-home/#respond" style="display:none;">Cancel reply</a></small></h3><form action="https://www.fixinguru.sg/wp-comments-post.php?wpe-comment-post=z1fixinguru" method="post" id="commentform" class="comment-form"><p class="comment-notes text-small">Your email address will not be published. Required fields are marked <span class="required">*</span></p><p class="comment-form-comment"><label class="assistive-text" for="comment">Comment</label><textarea id="comment" placeholder="Comment" name="comment" cols="45" rows="8" aria-required="true"></textarea></p><div class="form-fields"><span class="comment-form-author"><label class="assistive-text" for="author">Name &#42;</label><input id="author" name="author" type="text" placeholder="Name&#42;" value="" size="30" aria-required="true" /></span>
+<span class="comment-form-email"><label class="assistive-text" for="email">Email &#42;</label><input id="email" name="email" type="text" placeholder="Email&#42;" value="" size="30" aria-required="true" /></span>
+<span class="comment-form-url"><label class="assistive-text" for="url">Website</label><input id="url" name="url" type="text" placeholder="Website" value="" size="30" /></span></div>
+<p class="comment-form-cookies-consent"><input id="wp-comment-cookies-consent" name="wp-comment-cookies-consent" type="checkbox" value="yes"  /><label for="wp-comment-cookies-consent">Save my name, email, and website in this browser for the next time I comment.</label></p>
+<p class="form-submit"><input name="submit" type="submit" id="submit" class="submit" value="Post Comment" /> <a href="javascript:void(0);" class="dt-btn dt-btn-m"><span>Post comment</span></a><input type='hidden' name='comment_post_ID' value='982' id='comment_post_ID' />
+<input type='hidden' name='comment_parent' id='comment_parent' value='0' />
+</p></form>	</div><!-- #respond -->
+	
+	</div><!-- #comments .comments-area -->
+
+			</div><!-- #content -->
+
+			
+	<aside id="sidebar" class="sidebar">
+		<div class="sidebar-content">
+			<section id="search-2" class="widget widget_search">	<form class="searchform" role="search" method="get" action="https://www.fixinguru.sg/">
+		<label for="the7-search" class="screen-reader-text">Search:</label>
+		<input type="text" id="the7-search" class="field searchform-s" name="s" value="" placeholder="Type and hit enter &hellip;" />
+		<input type="submit" class="assistive-text searchsubmit" value="Go!" />
+		<a href="" class="submit"></a>
+	</form>
+</section>
+		<section id="recent-posts-2" class="widget widget_recent_entries">
+		<div class="widget-title">Recent Posts</div>
+		<ul>
+											<li>
+					<a href="../breathe-easy-a-comprehensive-guide-to-air-conditioning-maintenance/index.htm" tppabs="https://www.fixinguru.sg/breathe-easy-a-comprehensive-guide-to-air-conditioning-maintenance/">Breathe Easy: A Comprehensive Guide to Air Conditioning Maintenance</a>
+									</li>
+											<li>
+					<a href="../revitalize-your-workspace-a-guide-to-successful-office-remodeling-or-renovation/index.htm" tppabs="https://www.fixinguru.sg/revitalize-your-workspace-a-guide-to-successful-office-remodeling-or-renovation/">Revitalize Your Workspace: A Guide to Successful Office Remodeling or Renovation</a>
+									</li>
+											<li>
+					<a href="../unleashing-the-power-of-precision-why-your-home-needs-a-handyman-for-drilling-services/index.htm" tppabs="https://www.fixinguru.sg/unleashing-the-power-of-precision-why-your-home-needs-a-handyman-for-drilling-services/">Unleashing the Power of Precision: Why Your Home Needs a Handyman for Drilling Services</a>
+									</li>
+											<li>
+					<a href="../simplifying-your-move-out-journey-fixingurus-expert-handover-repair-cleaning-services/index.htm" tppabs="https://www.fixinguru.sg/simplifying-your-move-out-journey-fixingurus-expert-handover-repair-cleaning-services/">Simplifying Your Move-Out Journey: FixinGuru&#8217;s Expert Handover Repair &amp; Cleaning Services</a>
+									</li>
+											<li>
+					<a href="../optimizing-operations-a-comprehensive-guide-to-warehouse-renovation-for-increased-efficiency/index.htm" tppabs="https://www.fixinguru.sg/optimizing-operations-a-comprehensive-guide-to-warehouse-renovation-for-increased-efficiency/">Optimizing Operations: A Comprehensive Guide to Warehouse Renovation for Increased Efficiency</a>
+									</li>
+					</ul>
+
+		</section><section id="recent-comments-2" class="widget widget_recent_comments"><div class="widget-title">Recent Comments</div><ul id="recentcomments"></ul></section>		</div>
+	</aside><!-- #sidebar -->
+
+
+			</div><!-- .wf-container -->
+		</div><!-- .wf-wrap -->
+
+	
+	</div><!-- #main -->
+
+	
+
+	
+	<!-- !Footer -->
+	<footer id="footer" class="footer solid-bg">
+
+		
+<!-- !Bottom-bar -->
+<div id="bottom-bar" class="solid-bg logo-left" role="contentinfo">
+	<div class="wf-wrap"><a href="javascript:if(confirm('https://bestinsingapore.com/  ))window.location='https://bestinsingapore.com/'" tppabs="https://bestinsingapore.com/" target="_blank"><img style="max-height: 60px;float: left;margin-right: 30px;height: 100px;" src="data:image/svg+xml,%3Csvg%20xmlns='http://www.w3.org/2000/svg'%20viewBox='0%200%200%200'%3E%3C/svg%3E" alt="Best in Singapore Logo" data-lazy-src="../wp-content/uploads/2022/10/Best-in-singapore-logo.webp" tppabs="https://www.fixinguru.sg/wp-content/uploads/2022/10/Best-in-singapore-logo.webp" /><noscript><img style="max-height: 60px;float: left;margin-right: 30px;height: 100px;" src="../wp-content/uploads/2022/10/Best-in-singapore-logo.webp" tppabs="https://www.fixinguru.sg/wp-content/uploads/2022/10/Best-in-singapore-logo.webp" alt="Best in Singapore Logo" /></noscript></a>
+        <div class="wf-container-bottom">
+
+			
+                <div class="wf-float-left">
+
+					©2024 Fixinguru Pte Ltd. All right reserved. 
+                </div>
+
+			
+            <div class="wf-float-right">
+
+				<div class="bottom-text-block"><p>We Fix Everything | Handyman | Cleaning | <a href="../sitemap/index.htm" tppabs="https://www.fixinguru.sg/sitemap/">Sitemap</a><br />
+<br />
+<b>Name:</b> FixinGuru Pte Ltd - Handyman Services Singapore<br />
+<b>Address:</b> 18 Boon Lay Way, Tradehub 21, Singapore 609966<br />
+<b>Phone Number:</b> <a href= "tel:+8797 9735">8797 9735</a></p>
+</div>
+            </div>
+
+        </div><!-- .wf-container-bottom -->
+    </div><!-- .wf-wrap -->
+</div><!-- #bottom-bar -->
+	</footer><!-- #footer -->
+
+
+	<a href="#" class="scroll-top"><span class="screen-reader-text">Go to Top</span></a>
+
+</div><!-- #page -->
+
+<div id="arcontactus"></div>
+            
+<script type="text/javascript">
+    var zaloWidgetInterval;
+    var tawkToInterval;
+    var tawkToHideInterval;
+    var skypeWidgetInterval;
+    var lcpWidgetInterval;
+    var closePopupTimeout;
+    var lzWidgetInterval;
+    var paldeskInterval;
+    var arcuOptions;
+    var hideCustomerChatInterval;
+        var arcItems = [];
+        window.addEventListener('load', function(){
+        jQuery('#arcontactus').remove();
+        var $arcuWidget = jQuery('<div>', {
+            id: 'arcontactus'
+        });
+        jQuery('body').append($arcuWidget);
+                    arCuClosedCookie = arCuGetCookie('arcu-closed');
+                jQuery('#arcontactus').on('https://www.fixinguru.sg/4-benefits-of-a-clean-home/arcontactus.init', function(){
+            jQuery('#arcontactus').addClass('arcuAnimated').addClass('');
+            jQuery('#arcu-callback-form').append(arCUVars._wpnonce);
+            setTimeout(function(){
+                jQuery('#arcontactus').removeClass('');
+            }, 1000);
+                                                        });
+        jQuery('#arcontactus').on('arcontactus.closeMenu', function(){
+            arCuCreateCookie('arcumenu-closed', 1, 1);
+        });
+                                                var arcItem = {};
+                            arcItem.id = 'msg-item-2';
+                                        arcItem.onClick = function(e){
+                                        ga('send','event','contact','click','whatsapp');                }                
+                        arcItem.class = 'msg-item-whatsapp';
+            arcItem.title = "WhatsApp";
+                            arcItem.subTitle = "24hr Support";
+                        arcItem.icon = '<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><path fill="currentColor" d="https://www.fixinguru.sg/4-benefits-of-a-clean-home/M380.9 97.1C339 55.1 283.2 32 223.9 32c-122.4 0-222 99.6-222 222 0 39.1 10.2 77.3 29.6 111L0 480l117.7-30.9c32.4 17.7 68.9 27 106.1 27h.1c122.3 0 224.1-99.6 224.1-222 0-59.3-25.2-115-67.1-157zm-157 341.6c-33.2 0-65.7-8.9-94-25.7l-6.7-4-69.8 18.3L72 359.2l-4.4-7c-18.5-29.4-28.2-63.3-28.2-98.2 0-101.7 82.8-184.5 184.6-184.5 49.3 0 95.6 19.2 130.4 54.1 34.8 34.9 56.2 81.2 56.1 130.5 0 101.8-84.9 184.6-186.6 184.6zm101.2-138.2c-5.5-2.8-32.8-16.2-37.9-18-5.1-1.9-8.8-2.8-12.5 2.8-3.7 5.6-14.3 18-17.6 21.8-3.2 3.7-6.5 4.2-12 1.4-32.6-16.3-54-29.1-75.5-66-5.7-9.8 5.7-9.1 16.3-30.3 1.8-3.7.9-6.9-.5-9.7-1.4-2.8-12.5-30.1-17.1-41.2-4.5-10.8-9.1-9.3-12.5-9.5-3.2-.2-6.9-.2-10.6-.2-3.7 0-9.7 1.4-14.8 6.9-5.1 5.6-19.4 19-19.4 46.3 0 27.3 19.9 53.7 22.6 57.4 2.8 3.7 39.1 59.7 94.8 83.8 35.2 15.2 49 16.5 66.6 13.9 10.7-1.6 32.8-13.4 37.4-26.4 4.6-13 4.6-24.1 3.2-26.4-1.3-2.5-5-3.9-10.5-6.6z"></path></svg>';
+                            arcItem.href = 'https://wa.me/6587979735';
+                                    arcItem.color = '#25D366';
+            arcItems.push(arcItem);
+                                var arcItem = {};
+                            arcItem.id = 'msg-item-11';
+                                        arcItem.onClick = function(e){
+                                        ga('send','event','contact','click','whatsapp-agent');                }                
+                        arcItem.class = 'msg-item-whatsapp';
+            arcItem.title = "WhatsApp (Agents Only)";
+                            arcItem.subTitle = "For Real Estate Agents Only";
+                        arcItem.icon = '<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><path fill="currentColor" d="https://www.fixinguru.sg/4-benefits-of-a-clean-home/M380.9 97.1C339 55.1 283.2 32 223.9 32c-122.4 0-222 99.6-222 222 0 39.1 10.2 77.3 29.6 111L0 480l117.7-30.9c32.4 17.7 68.9 27 106.1 27h.1c122.3 0 224.1-99.6 224.1-222 0-59.3-25.2-115-67.1-157zm-157 341.6c-33.2 0-65.7-8.9-94-25.7l-6.7-4-69.8 18.3L72 359.2l-4.4-7c-18.5-29.4-28.2-63.3-28.2-98.2 0-101.7 82.8-184.5 184.6-184.5 49.3 0 95.6 19.2 130.4 54.1 34.8 34.9 56.2 81.2 56.1 130.5 0 101.8-84.9 184.6-186.6 184.6zm101.2-138.2c-5.5-2.8-32.8-16.2-37.9-18-5.1-1.9-8.8-2.8-12.5 2.8-3.7 5.6-14.3 18-17.6 21.8-3.2 3.7-6.5 4.2-12 1.4-32.6-16.3-54-29.1-75.5-66-5.7-9.8 5.7-9.1 16.3-30.3 1.8-3.7.9-6.9-.5-9.7-1.4-2.8-12.5-30.1-17.1-41.2-4.5-10.8-9.1-9.3-12.5-9.5-3.2-.2-6.9-.2-10.6-.2-3.7 0-9.7 1.4-14.8 6.9-5.1 5.6-19.4 19-19.4 46.3 0 27.3 19.9 53.7 22.6 57.4 2.8 3.7 39.1 59.7 94.8 83.8 35.2 15.2 49 16.5 66.6 13.9 10.7-1.6 32.8-13.4 37.4-26.4 4.6-13 4.6-24.1 3.2-26.4-1.3-2.5-5-3.9-10.5-6.6z"></path></svg>';
+                            arcItem.href = 'https://wa.me/6587979735';
+                                    arcItem.color = '#188A43';
+            arcItems.push(arcItem);
+                                var arcItem = {};
+                            arcItem.id = 'msg-item-6';
+                                        arcItem.onClick = function(e){
+                                        ga('send','event','contact','click','email');                }                
+                        arcItem.class = 'msg-item-envelope';
+            arcItem.title = "Email us";
+                            arcItem.subTitle = "Reply in 1-2 working days.";
+                        arcItem.icon = '<svg  xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><path fill="currentColor" d="M464 64H48C21.5 64 0 85.5 0 112v288c0 26.5 21.5 48 48 48h416c26.5 0 48-21.5 48-48V112c0-26.5-21.5-48-48-48zM48 96h416c8.8 0 16 7.2 16 16v41.4c-21.9 18.5-53.2 44-150.6 121.3-16.9 13.4-50.2 45.7-73.4 45.3-23.2.4-56.6-31.9-73.4-45.3C85.2 197.4 53.9 171.9 32 153.4V112c0-8.8 7.2-16 16-16zm416 320H48c-8.8 0-16-7.2-16-16V195c22.8 18.7 58.8 47.6 130.7 104.7 20.5 16.4 56.7 52.5 93.3 52.3 36.4.3 72.3-35.5 93.3-52.3 71.9-57.1 107.9-86 130.7-104.7v205c0 8.8-7.2 16-16 16z"></path></svg>';
+                            arcItem.href = 'mailto:enquiry@fixinguru.sg';
+                                    arcItem.color = '#FF643A';
+            arcItems.push(arcItem);
+                arcuOptions = {
+            wordpressPluginVersion: '1.9.9',
+                        drag: false,
+            mode: 'regular',
+            buttonIconUrl: 'https://www.fixinguru.sg/wp-content/plugins/ar-contactus/res/img/msg.svg',
+            showMenuHeader: false,
+                            menuHeaderText: "",
+                        showHeaderCloseBtn: false,
+                                                itemsIconType: '',
+            align: '',
+            reCaptcha: false,
+            reCaptchaKey: '',
+            countdown: 0,
+            theme: '#',
+                            buttonText: false,
+                        buttonSize: '',
+                        menuSize: '',
+                            phonePlaceholder: '',
+                callbackSubmitText: '',
+                errorMessage: '',
+                callProcessText: '',
+                callSuccessText: '',
+                callbackFormText: '',
+                        iconsAnimationSpeed: 0,
+            iconsAnimationPause: 0,
+            items: arcItems,
+            ajaxUrl: 'https://www.fixinguru.sg/wp-admin/admin-ajax.php',
+                                                        style: '',
+                                    callbackFormFields: {
+                                                phone: {
+                    name: 'phone',
+                    enabled: true,
+                    required: true,
+                    type: 'tel',
+                    label: '',
+                                            placeholder: ""
+                                    },
+                            },
+            action: 'arcontactus_request_callback'
+        };
+                                    jQuery('#arcontactus').contactUs(arcuOptions);
+                                                                        });
+                                                                    </script>
+<div id="qlwapp" class="qlwapp qlwapp-free qlwapp-button qlwapp-bottom-left qlwapp-all qlwapp-rounded">
+	<div class="qlwapp-container">
+		
+		<a class="qlwapp-toggle" data-action="open" data-phone="6587979735" data-message="Hello!" role="button" tabindex="0" target="_blank">
+							<i class="qlwapp-icon qlwapp-whatsapp-icon"></i>
+						<i class="qlwapp-close" data-action="close">&times;</i>
+							<span class="qlwapp-text">How can I help you?</span>
+					</a>
+	</div>
+</div>
+<script type="rocketlazyloadscript" data-rocket-type="text/javascript" data-rocket-src="../wp-content/themes/dt-the7/js/main.min.js-ver=9.2.1" tppabs="https://www.fixinguru.sg/wp-content/themes/dt-the7/js/main.min.js?ver=9.2.1" id="dt-main-js" defer></script>
+<script type="rocketlazyloadscript" data-minify="1" data-rocket-type="text/javascript" data-rocket-src="../wp-content/cache/min/1/wp-content/plugins/contact-form-7/includes/swv/js/index.js-ver=1695002404" tppabs="https://www.fixinguru.sg/wp-content/cache/min/1/wp-content/plugins/contact-form-7/includes/swv/js/index.js?ver=1695002404" id="swv-js" defer></script>
+<script type="text/javascript" id="contact-form-7-js-extra">
+/* <![CDATA[ */
+var wpcf7 = {"api":{"root":"https:\/\/www.fixinguru.sg\/wp-json\/","namespace":"contact-form-7\/v1"},"cached":"1"};
+/* ]]> */
+</script>
+<script type="rocketlazyloadscript" data-minify="1" data-rocket-type="text/javascript" data-rocket-src="../wp-content/cache/min/1/wp-content/plugins/contact-form-7/includes/js/index.js-ver=1695002404" tppabs="https://www.fixinguru.sg/wp-content/cache/min/1/wp-content/plugins/contact-form-7/includes/js/index.js?ver=1695002404" id="contact-form-7-js" defer></script>
+<script type="rocketlazyloadscript" data-minify="1" data-rocket-type="text/javascript" data-rocket-src="../wp-content/cache/min/1/wp-content/plugins/duracelltomi-google-tag-manager/dist/js/gtm4wp-form-move-tracker.js-ver=1702303937" tppabs="https://www.fixinguru.sg/wp-content/cache/min/1/wp-content/plugins/duracelltomi-google-tag-manager/dist/js/gtm4wp-form-move-tracker.js?ver=1702303937" id="gtm4wp-form-move-tracker-js" defer></script>
+<script type="rocketlazyloadscript" data-minify="1" data-rocket-type="text/javascript" data-rocket-src="../wp-content/cache/min/1/wp-content/plugins/wp-whatsapp-chat/build/frontend/js/index.js-ver=1695002404" tppabs="https://www.fixinguru.sg/wp-content/cache/min/1/wp-content/plugins/wp-whatsapp-chat/build/frontend/js/index.js?ver=1695002404" id="qlwapp-js" defer></script>
+<script type="rocketlazyloadscript" data-rocket-type="text/javascript" data-rocket-src="../wp-includes/js/comment-reply.min.js-ver=6.4.3" tppabs="https://www.fixinguru.sg/wp-includes/js/comment-reply.min.js?ver=6.4.3" id="comment-reply-js" async="async" data-wp-strategy="async"></script>
+<script type="rocketlazyloadscript" data-rocket-type="text/javascript" data-rocket-src="../wp-content/plugins/dt-the7-core/assets/js/post-type.min.js-ver=2.7.8" tppabs="https://www.fixinguru.sg/wp-content/plugins/dt-the7-core/assets/js/post-type.min.js?ver=2.7.8" id="the7-core-js" defer></script>
+<script type="text/javascript" src="../../www.google.com/recaptcha/api.js-render=6LfHX0UaAAAAAIMPzNnlz1mJueAGlze6RBt_00IP&ver=3.0" tppabs="https://www.google.com/recaptcha/api.js?render=6LfHX0UaAAAAAIMPzNnlz1mJueAGlze6RBt_00IP&ver=3.0" id="google-recaptcha-js"></script>
+<script type="rocketlazyloadscript" data-rocket-type="text/javascript" data-rocket-src="../wp-includes/js/dist/vendor/wp-polyfill-inert.min.js-ver=3.1.2" tppabs="https://www.fixinguru.sg/wp-includes/js/dist/vendor/wp-polyfill-inert.min.js?ver=3.1.2" id="wp-polyfill-inert-js" defer></script>
+<script type="rocketlazyloadscript" data-rocket-type="text/javascript" data-rocket-src="../wp-includes/js/dist/vendor/regenerator-runtime.min.js-ver=0.14.0" tppabs="https://www.fixinguru.sg/wp-includes/js/dist/vendor/regenerator-runtime.min.js?ver=0.14.0" id="regenerator-runtime-js" defer></script>
+<script type="rocketlazyloadscript" data-rocket-type="text/javascript" data-rocket-src="../wp-includes/js/dist/vendor/wp-polyfill.min.js-ver=3.15.0" tppabs="https://www.fixinguru.sg/wp-includes/js/dist/vendor/wp-polyfill.min.js?ver=3.15.0" id="wp-polyfill-js"></script>
+<script type="text/javascript" id="wpcf7-recaptcha-js-extra">
+/* <![CDATA[ */
+var wpcf7_recaptcha = {"sitekey":"6LfHX0UaAAAAAIMPzNnlz1mJueAGlze6RBt_00IP","actions":{"homepage":"homepage","contactform":"contactform"}};
+/* ]]> */
+</script>
+<script data-minify="1" type="text/javascript" src="../wp-content/cache/min/1/wp-content/plugins/contact-form-7/modules/recaptcha/index.js-ver=1695002404" tppabs="https://www.fixinguru.sg/wp-content/cache/min/1/wp-content/plugins/contact-form-7/modules/recaptcha/index.js?ver=1695002404" id="wpcf7-recaptcha-js" defer></script>
+<script>window.lazyLoadOptions=[{elements_selector:"img[data-lazy-src],.rocket-lazyload",data_src:"lazy-src",data_srcset:"lazy-srcset",data_sizes:"lazy-sizes",class_loading:"lazyloading",class_loaded:"lazyloaded",threshold:300,callback_loaded:function(element){if(element.tagName==="IFRAME"&&element.dataset.rocketLazyload=="fitvidscompatible"){if(element.classList.contains("lazyloaded")){if(typeof window.jQuery!="undefined"){if(jQuery.fn.fitVids){jQuery(element).parent().fitVids()}}}}}},{elements_selector:".rocket-lazyload",data_src:"lazy-src",data_srcset:"lazy-srcset",data_sizes:"lazy-sizes",class_loading:"lazyloading",class_loaded:"lazyloaded",threshold:300,}];window.addEventListener('LazyLoad::Initialized',function(e){var lazyLoadInstance=e.detail.instance;if(window.MutationObserver){var observer=new MutationObserver(function(mutations){var image_count=0;var iframe_count=0;var rocketlazy_count=0;mutations.forEach(function(mutation){for(var i=0;i<mutation.addedNodes.length;i++){if(typeof mutation.addedNodes[i].getElementsByTagName!=='function'){continue}
+if(typeof mutation.addedNodes[i].getElementsByClassName!=='function'){continue}
+images=mutation.addedNodes[i].getElementsByTagName('img');is_image=mutation.addedNodes[i].tagName=="IMG";iframes=mutation.addedNodes[i].getElementsByTagName('iframe');is_iframe=mutation.addedNodes[i].tagName=="IFRAME";rocket_lazy=mutation.addedNodes[i].getElementsByClassName('rocket-lazyload');image_count+=images.length;iframe_count+=iframes.length;rocketlazy_count+=rocket_lazy.length;if(is_image){image_count+=1}
+if(is_iframe){iframe_count+=1}}});if(image_count>0||iframe_count>0||rocketlazy_count>0){lazyLoadInstance.update()}});var b=document.getElementsByTagName("body")[0];var config={childList:!0,subtree:!0};observer.observe(b,config)}},!1)</script><script data-no-minify="1" async src="../wp-content/plugins/wp-rocket/assets/js/lazyload/17.8.3/lazyload.min.js" tppabs="https://www.fixinguru.sg/wp-content/plugins/wp-rocket/assets/js/lazyload/17.8.3/lazyload.min.js"></script>
+<div class="pswp" tabindex="-1" role="dialog" aria-hidden="true">
+	<div class="pswp__bg"></div>
+	<div class="pswp__scroll-wrap">
+		<div class="pswp__container">
+			<div class="pswp__item"></div>
+			<div class="pswp__item"></div>
+			<div class="pswp__item"></div>
+		</div>
+		<div class="pswp__ui pswp__ui--hidden">
+			<div class="pswp__top-bar">
+				<div class="pswp__counter"></div>
+				<button class="pswp__button pswp__button--close" title="Close (Esc)" aria-label="Close (Esc)"></button>
+				<button class="pswp__button pswp__button--share" title="Share" aria-label="Share"></button>
+				<button class="pswp__button pswp__button--fs" title="Toggle fullscreen" aria-label="Toggle fullscreen"></button>
+				<button class="pswp__button pswp__button--zoom" title="Zoom in/out" aria-label="Zoom in/out"></button>
+				<div class="pswp__preloader">
+					<div class="pswp__preloader__icn">
+						<div class="pswp__preloader__cut">
+							<div class="pswp__preloader__donut"></div>
+						</div>
+					</div>
+				</div>
+			</div>
+			<div class="pswp__share-modal pswp__share-modal--hidden pswp__single-tap">
+				<div class="pswp__share-tooltip"></div> 
+			</div>
+			<button class="pswp__button pswp__button--arrow--left" title="Previous (arrow left)" aria-label="Previous (arrow left)">
+			</button>
+			<button class="pswp__button pswp__button--arrow--right" title="Next (arrow right)" aria-label="Next (arrow right)">
+			</button>
+			<div class="pswp__caption">
+				<div class="pswp__caption__center"></div>
+			</div>
+		</div>
+	</div>
+</div>
+</body>
+</html>
+<!-- Rocket has webp -->
+<!-- This website is like a Rocket, isn't it? Performance optimized by WP Rocket. Learn more: https://wp-rocket.me -->
